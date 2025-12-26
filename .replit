@@ -1,12 +1,13 @@
 entrypoint = "main.sh"
-modules = ["bash", "python-3.11", "java-graalvm22.3"]
+modules = ["web", "python-3.11", "nix"]
 
 [nix]
-channel = "stable-24_05"
+channel = "stable-25_05"
+packages = ["openssl", "postgresql"]
 
 [deployment]
-run = ["bash", "main.sh"]
-deploymentTarget = "cloudrun"
+run = ["gunicorn", "--bind", "0.0.0.0:5000", "main:app"]
+deploymentTarget = "autoscale"
 
 [agent]
 expertMode = true
@@ -21,15 +22,15 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "APK Decompiler"
+args = "Start application"
 
 [[workflows.workflow]]
-name = "APK Decompiler"
+name = "Start application"
 author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "python main.py"
+args = "gunicorn --bind 0.0.0.0:5000 --reuse-port --reload main:app"
 waitForPort = 5000
 
 [workflows.workflow.metadata]
