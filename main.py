@@ -111,8 +111,51 @@ def view_project(project_name):
     if not os.path.exists(project_path):
         return redirect(url_for('index'))
     
+    # Check if compiled APK exists
+    compiled_apk = os.path.join(app.config['DECOMPILED_FOLDER'], f"{project_name}_compiled.apk")
+    has_compiled = os.path.exists(compiled_apk)
+    
     tree = get_directory_tree(project_path)
-    return render_template('project.html', project_name=project_name, tree=tree)
+    return render_template('project.html', project_name=project_name, tree=tree, has_compiled=has_compiled)
+
+@app.route('/compile/<project_name>', methods=['POST'])
+def compile_project(project_name):
+    project_path = os.path.join(app.config['DECOMPILED_FOLDER'], secure_filename(project_name))
+    if not os.path.exists(project_path):
+        return jsonify({'error': 'Proyecto no encontrado'}), 404
+        
+    output_apk = os.path.join(app.config['DECOMPILED_FOLDER'], f"{project_name}_compiled.apk")
+    
+    try:
+        # Step 1: Build APK
+        result = subprocess.run(
+            ['apktool', 'b', project_path, '-o', output_apk],
+            capture_output=True,
+            text=True,
+            timeout=300
+        )
+        
+        if result.returncode != 0:
+            return jsonify({'error': 'Error al compilar', 'details': result.stderr}), 500
+            
+        # Optional: Sign the APK (using a debug key if available, otherwise just mention it's unsigned)
+        # For now, we just return success with the compiled APK
+        
+        return jsonify({
+            'success': True,
+            'message': 'APK compilado exitosamente',
+            'download_url': url_for('download_compiled', project_name=project_name)
+        })
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/download-compiled/<project_name>')
+def download_compiled(project_name):
+    filepath = os.path.join(app.config['DECOMPILED_FOLDER'], f"{secure_filename(project_name)}_compiled.apk")
+    if os.path.exists(filepath):
+        return send_file(filepath, as_attachment=True, download_name=f"{project_name}_new.apk")
+    return jsonify({'error': 'Archivo no encontrado'}), 404
 
 @app.route('/file/<project_name>/<path:filepath>')
 def view_file(project_name, filepath):

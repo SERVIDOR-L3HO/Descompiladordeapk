@@ -3,104 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ project_name }} - APK Decompiler</title>
+    <title>{{ project_name }} - APK Decompiler Pro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #1a1a2e; color: #eee; min-height: 100vh; display: flex; }
-        .sidebar { width: 320px; background: #16213e; height: 100vh; overflow-y: auto; border-right: 1px solid #333; position: fixed; }
-        .sidebar-header { padding: 20px; border-bottom: 1px solid #333; }
-        .sidebar-header a { color: #888; text-decoration: none; font-size: 0.9rem; }
-        .sidebar-header a:hover { color: #00d9ff; }
-        .sidebar-header h2 { color: #00d9ff; margin-top: 10px; word-break: break-all; }
-        .tree { padding: 10px; }
-        .tree-item { padding: 6px 10px; cursor: pointer; border-radius: 6px; display: flex; align-items: center; gap: 8px; }
-        .tree-item:hover { background: #1a2744; }
-        .tree-item.active { background: #00d9ff22; color: #00d9ff; }
+        :root {
+            --primary-bg: #0f172a;
+            --secondary-bg: #1e293b;
+            --sidebar-bg: #0f172a;
+            --accent-color: #38bdf8;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+        }
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .app-container {
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 350px;
+            background-color: var(--sidebar-bg);
+            border-right: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .tree-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: #020617;
+        }
+        .top-bar {
+            padding: 15px 25px;
+            background-color: var(--secondary-bg);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .editor-container {
+            flex: 1;
+            overflow: auto;
+            padding: 20px;
+        }
+        pre {
+            margin: 0;
+            color: #e2e8f0;
+            font-family: 'Fira Code', 'Cascadia Code', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .tree-item {
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .tree-item:hover {
+            background-color: rgba(56, 189, 248, 0.1);
+        }
+        .tree-item.active {
+            background-color: rgba(56, 189, 248, 0.2);
+            color: var(--accent-color);
+        }
         .tree-folder { font-weight: 500; }
-        .tree-folder::before { content: '📁'; }
-        .tree-folder.open::before { content: '📂'; }
-        .tree-file::before { content: '📄'; }
-        .tree-file.xml::before { content: '📜'; }
-        .tree-file.smali::before { content: '💻'; }
-        .tree-file.png::before, .tree-file.jpg::before { content: '🖼️'; }
-        .tree-children { margin-left: 20px; display: none; }
-        .tree-children.open { display: block; }
-        .main { margin-left: 320px; flex: 1; padding: 20px; }
-        .file-viewer { background: #16213e; border-radius: 12px; min-height: calc(100vh - 40px); }
-        .file-header { padding: 15px 20px; border-bottom: 1px solid #333; display: flex; justify-content: space-between; align-items: center; }
-        .file-name { color: #00d9ff; font-size: 1.1rem; }
-        .download-btn { background: #00d9ff; color: #000; padding: 8px 16px; border: none; border-radius: 6px; cursor: pointer; text-decoration: none; font-size: 0.9rem; }
-        .file-content { padding: 20px; overflow-x: auto; }
-        .file-content pre { background: #0d1117; padding: 20px; border-radius: 8px; overflow-x: auto; font-family: 'Monaco', 'Menlo', monospace; font-size: 13px; line-height: 1.5; color: #c9d1d9; }
-        .placeholder { text-align: center; padding: 100px 20px; color: #666; }
-        .binary-msg { text-align: center; padding: 60px; color: #888; }
+        .tree-children {
+            margin-left: 15px;
+            border-left: 1px solid rgba(255,255,255,0.1);
+            display: none;
+        }
+        .tree-children.show { display: block; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+        .compile-btn {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        .compile-btn:hover {
+            opacity: 0.9;
+            color: white;
+        }
+        .btn-download-new {
+            background: linear-gradient(135deg, #38bdf8, #0284c7);
+            color: white;
+            border: none;
+        }
     </style>
 </head>
 <body>
-    <div class="sidebar">
-        <div class="sidebar-header">
-            <a href="/">← Volver</a>
-            <h2>{{ project_name }}</h2>
-        </div>
-        <div class="tree" id="tree"></div>
-    </div>
-    
-    <div class="main">
-        <div class="file-viewer">
-            <div class="file-header" id="fileHeader" style="display: none;">
-                <span class="file-name" id="fileName"></span>
-                <a class="download-btn" id="downloadBtn" href="#">Descargar</a>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="/" class="text-decoration-none text-muted small mb-2 d-block">
+                    <i class="bi bi-arrow-left"></i> Volver a Proyectos
+                </a>
+                <h5 class="fw-bold text-info mb-3 truncate">{{ project_name }}</h5>
+                <div class="d-grid gap-2">
+                    <button class="compile-btn" id="compileBtn" onclick="compileProject()">
+                        <i class="bi bi-hammer"></i> Compilar APK
+                    </button>
+                    {% if has_compiled %}
+                    <a href="/download-compiled/{{ project_name }}" class="btn btn-sm btn-download-new" id="compiledDownload">
+                        <i class="bi bi-download"></i> Descargar Compilado
+                    </a>
+                    {% endif %}
+                </div>
             </div>
-            <div class="file-content" id="fileContent">
-                <div class="placeholder">Selecciona un archivo para ver su contenido</div>
+            <div class="tree-container" id="treeRoot">
+                <!-- Tree will be injected here -->
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div>
+                    <span id="currentFileName" class="fw-bold text-info">Ningun archivo seleccionado</span>
+                </div>
+                <div id="fileActions" style="display: none;">
+                    <a href="#" id="rawDownload" class="btn btn-sm btn-outline-light">
+                        <i class="bi bi-download"></i> Descargar
+                    </a>
+                </div>
+            </header>
+            <div class="editor-container" id="editorArea">
+                <div class="h-100 d-flex flex-column justify-content-center align-items-center text-muted">
+                    <i class="bi bi-code-slash display-1 mb-4"></i>
+                    <h4>Explora el código fuente</h4>
+                    <p>Selecciona un archivo del panel izquierdo para visualizarlo</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Compile Modal -->
+    <div class="modal fade" id="compileModal" data-bs-backdrop="static" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-white border-secondary">
+                <div class="modal-body text-center p-5">
+                    <div class="spinner-border text-info mb-4" role="status" style="width: 3rem; height: 3rem;"></div>
+                    <h4 class="mb-3">Compilando APK...</h4>
+                    <p class="text-muted">Esto puede tardar varios minutos dependiendo del tamaño de la aplicación.</p>
+                </div>
             </div>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const projectName = "{{ project_name }}";
-        const tree = {{ tree | tojson }};
+        const treeData = {{ tree | tojson }};
+        let compileModal;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            compileModal = new bootstrap.Modal(document.getElementById('compileModal'));
+            renderTree(treeData, document.getElementById('treeRoot'));
+        });
 
         function renderTree(items, container) {
             items.forEach(item => {
-                const div = document.createElement('div');
-                if (item.type === 'folder') {
-                    div.innerHTML = `<div class="tree-item tree-folder" data-path="${item.path}">${item.name}</div>`;
-                    const children = document.createElement('div');
-                    children.className = 'tree-children';
-                    if (item.children) renderTree(item.children, children);
-                    div.appendChild(children);
-                    div.querySelector('.tree-folder').onclick = function() {
-                        this.classList.toggle('open');
-                        children.classList.toggle('open');
+                const itemEl = document.createElement('div');
+                const isFolder = item.type === 'folder';
+                
+                itemEl.innerHTML = `
+                    <div class="tree-item ${isFolder ? 'tree-folder' : 'tree-file'}" data-path="${item.path}">
+                        <i class="bi ${isFolder ? 'bi-folder-fill text-warning' : getIcon(item.name)}"></i>
+                        <span>${item.name}</span>
+                    </div>
+                `;
+
+                if (isFolder) {
+                    const childrenContainer = document.createElement('div');
+                    childrenContainer.className = 'tree-children';
+                    if (item.children) renderTree(item.children, childrenContainer);
+                    
+                    itemEl.querySelector('.tree-folder').onclick = (e) => {
+                        e.stopPropagation();
+                        childrenContainer.classList.toggle('show');
+                        const icon = itemEl.querySelector('i');
+                        if (childrenContainer.classList.contains('show')) {
+                            icon.className = 'bi bi-folder2-open text-warning';
+                        } else {
+                            icon.className = 'bi bi-folder-fill text-warning';
+                        }
                     };
+                    itemEl.appendChild(childrenContainer);
                 } else {
-                    const ext = item.name.split('.').pop();
-                    div.innerHTML = `<div class="tree-item tree-file ${ext}" data-path="${item.path}">${item.name}</div>`;
-                    div.querySelector('.tree-file').onclick = () => loadFile(item.path, item.name);
+                    itemEl.querySelector('.tree-file').onclick = (e) => {
+                        e.stopPropagation();
+                        document.querySelectorAll('.tree-item').forEach(el => el.classList.remove('active'));
+                        e.currentTarget.classList.add('active');
+                        loadFile(item.path, item.name);
+                    };
                 }
-                container.appendChild(div);
+                container.appendChild(itemEl);
             });
         }
 
+        function getIcon(filename) {
+            const ext = filename.split('.').pop().toLowerCase();
+            const icons = {
+                'xml': 'bi-filetype-xml text-info',
+                'smali': 'bi-file-earmark-code text-primary',
+                'png': 'bi-file-earmark-image text-success',
+                'jpg': 'bi-file-earmark-image text-success',
+                'yml': 'bi-filetype-yml text-warning',
+                'json': 'bi-filetype-json text-warning'
+            };
+            return icons[ext] || 'bi-file-earmark-text';
+        }
+
         function loadFile(path, name) {
-            document.querySelectorAll('.tree-item').forEach(el => el.classList.remove('active'));
-            event.target.classList.add('active');
-            
             fetch(`/file/${projectName}/${path}`)
                 .then(r => r.json())
                 .then(data => {
-                    document.getElementById('fileHeader').style.display = 'flex';
-                    document.getElementById('fileName').textContent = data.filename;
-                    document.getElementById('downloadBtn').href = `/download/${projectName}/${path}`;
+                    document.getElementById('currentFileName').textContent = name;
+                    document.getElementById('fileActions').style.display = 'block';
+                    document.getElementById('rawDownload').href = `/download/${projectName}/${path}`;
                     
+                    const editorArea = document.getElementById('editorArea');
                     if (data.type === 'text') {
-                        document.getElementById('fileContent').innerHTML = 
-                            `<pre>${escapeHtml(data.content)}</pre>`;
+                        editorArea.innerHTML = `<pre><code>${escapeHtml(data.content)}</code></pre>`;
                     } else {
-                        document.getElementById('fileContent').innerHTML = 
-                            `<div class="binary-msg">Archivo binario - usa el boton Descargar</div>`;
+                        editorArea.innerHTML = `
+                            <div class="h-100 d-flex flex-column justify-content-center align-items-center text-muted">
+                                <i class="bi bi-file-earmark-binary display-1 mb-4"></i>
+                                <h4>Archivo Binario</h4>
+                                <p>Este tipo de archivo no se puede previsualizar directamente.</p>
+                                <a href="/download/${projectName}/${path}" class="btn btn-outline-info mt-2">Descargar para ver</a>
+                            </div>`;
                     }
+                });
+        }
+
+        function compileProject() {
+            if (!confirm('¿Deseas iniciar la compilación de este proyecto?')) return;
+            
+            compileModal.show();
+            
+            fetch(`/compile/${projectName}`, { method: 'POST' })
+                .then(r => r.json())
+                .then(res => {
+                    compileModal.hide();
+                    if (res.success) {
+                        alert('¡Compilación exitosa!');
+                        location.reload(); // To show the download button
+                    } else {
+                        alert('Error en la compilación: ' + (res.details || res.error));
+                    }
+                })
+                .catch(err => {
+                    compileModal.hide();
+                    alert('Error de red al intentar compilar');
                 });
         }
 
@@ -109,8 +292,6 @@
             div.textContent = text;
             return div.innerHTML;
         }
-
-        renderTree(tree, document.getElementById('tree'));
     </script>
 </body>
 </html>
