@@ -5,6 +5,7 @@ from flask import Flask, render_template, request, jsonify, send_file, redirect,
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
+app.secret_key = os.environ.get("SESSION_SECRET")
 app.config['UPLOAD_FOLDER'] = 'uploads'
 app.config['DECOMPILED_FOLDER'] = 'decompiled'
 app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024
