@@ -52,10 +52,10 @@ def movies():
     query = request.args.get('q', '')
     if query:
         url = f"{TMDB_BASE_URL}/search/movie"
-        params = {'api_key': TMDB_API_KEY, 'query': query, 'language': 'es-ES'}
+        params = {'api_key': TMDB_API_KEY, 'query': query, 'language': 'es-MX'}
     else:
         url = f"{TMDB_BASE_URL}/movie/popular"
-        params = {'api_key': TMDB_API_KEY, 'language': 'es-ES'}
+        params = {'api_key': TMDB_API_KEY, 'language': 'es-MX'}
     
     try:
         response = requests.get(url, params=params)
@@ -70,7 +70,7 @@ def movies():
 @app.route('/watch/<int:movie_id>')
 def watch_movie(movie_id):
     url = f"{TMDB_BASE_URL}/movie/{movie_id}"
-    params = {'api_key': TMDB_API_KEY, 'language': 'es-ES'}
+    params = {'api_key': TMDB_API_KEY, 'language': 'es-MX'}
     try:
         response = requests.get(url, params=params)
         movie = response.json()

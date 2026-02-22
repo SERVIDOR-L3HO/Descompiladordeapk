@@ -23,7 +23,13 @@
         <div class="row">
             <div class="col-lg-9 mx-auto">
                 <div class="player-container">
-                    <iframe src="https://vidsrc.to/embed/movie/{{ movie.id }}" allowfullscreen></iframe>
+                    <iframe 
+                        src="https://vidsrc.xyz/embed/movie/{{ movie.id }}" 
+                        allowfullscreen 
+                        sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation"
+                        scrolling="no"
+                        frameborder="0">
+                    </iframe>
                 </div>
 
                 <div class="movie-info">
