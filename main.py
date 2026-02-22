@@ -67,6 +67,17 @@ def movies():
         
     return render_template('movies.html', movies=movies_list, query=query)
 
+@app.route('/watch/<int:movie_id>')
+def watch_movie(movie_id):
+    url = f"{TMDB_BASE_URL}/movie/{movie_id}"
+    params = {'api_key': TMDB_API_KEY, 'language': 'es-ES'}
+    try:
+        response = requests.get(url, params=params)
+        movie = response.json()
+    except:
+        return redirect(url_for('movies'))
+    return render_template('player.html', movie=movie)
+
 @app.route('/')
 def index():
     projects = []
