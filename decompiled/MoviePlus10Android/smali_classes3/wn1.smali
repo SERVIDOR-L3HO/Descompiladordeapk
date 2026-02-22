@@ -1,0 +1,133 @@
+.class public abstract Lwn1;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# direct methods
+.method public static a(Ljava/lang/reflect/Type;)Z
+    .locals 1
+
+    .line 1
+    .line 2
+    instance-of v0, p0, Ljava/lang/Class;
+
+    .line 3
+    .line 4
+    if-eqz v0, :cond_0
+
+    .line 5
+    .line 6
+    check-cast p0, Ljava/lang/Class;
+
+    .line 7
+    .line 8
+    .line 9
+    invoke-virtual {p0}, Ljava/lang/Class;->isPrimitive()Z
+
+    .line 10
+    move-result p0
+
+    .line 11
+    .line 12
+    if-eqz p0, :cond_0
+
+    .line 13
+    const/4 p0, 0x1
+
+    .line 14
+    goto :goto_0
+
+    .line 15
+    :cond_0
+    const/4 p0, 0x0
+
+    .line 16
+    :goto_0
+    return p0
+.end method
+
+.method public static b(Ljava/lang/Class;)Ljava/lang/Class;
+    .locals 1
+
+    .line 1
+    sget-object v0, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+
+    if-ne p0, v0, :cond_0
+
+    const-class p0, Ljava/lang/Integer;
+
+    return-object p0
+
+    :cond_0
+    sget-object v0, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
+
+    if-ne p0, v0, :cond_1
+
+    const-class p0, Ljava/lang/Float;
+
+    return-object p0
+
+    :cond_1
+    sget-object v0, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
+
+    if-ne p0, v0, :cond_2
+
+    const-class p0, Ljava/lang/Byte;
+
+    return-object p0
+
+    :cond_2
+    sget-object v0, Ljava/lang/Double;->TYPE:Ljava/lang/Class;
+
+    if-ne p0, v0, :cond_3
+
+    const-class p0, Ljava/lang/Double;
+
+    return-object p0
+
+    :cond_3
+    sget-object v0, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
+
+    if-ne p0, v0, :cond_4
+
+    const-class p0, Ljava/lang/Long;
+
+    return-object p0
+
+    :cond_4
+    sget-object v0, Ljava/lang/Character;->TYPE:Ljava/lang/Class;
+
+    if-ne p0, v0, :cond_5
+
+    const-class p0, Ljava/lang/Character;
+
+    return-object p0
+
+    :cond_5
+    sget-object v0, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
+
+    if-ne p0, v0, :cond_6
+
+    const-class p0, Ljava/lang/Boolean;
+
+    return-object p0
+
+    :cond_6
+    sget-object v0, Ljava/lang/Short;->TYPE:Ljava/lang/Class;
+
+    if-ne p0, v0, :cond_7
+
+    const-class p0, Ljava/lang/Short;
+
+    return-object p0
+
+    :cond_7
+    sget-object v0, Ljava/lang/Void;->TYPE:Ljava/lang/Class;
+
+    if-ne p0, v0, :cond_8
+
+    const-class p0, Ljava/lang/Void;
+
+    :cond_8
+    return-object p0
+.end method

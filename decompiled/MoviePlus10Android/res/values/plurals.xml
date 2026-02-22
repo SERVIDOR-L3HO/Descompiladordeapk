@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="al_exo_controls_fastforward_by_amount_description">
+        <item quantity="other">Fast forward %d seconds</item>
+        <item quantity="one">Fast forward %d second</item>
+    </plurals>
+    <plurals name="al_exo_controls_rewind_by_amount_description">
+        <item quantity="other">Rewind %d seconds</item>
+        <item quantity="one">Rewind %d second</item>
+    </plurals>
+    <plurals name="already_downloaded_service">
+        <item quantity="other">%1$d archivos descargados anteriormente</item>
+        <item quantity="one">%1$d archivo descargado anteriormente</item>
+    </plurals>
+    <plurals name="copied_service_upload">
+        <item quantity="other">%1$d archivos copiados</item>
+        <item quantity="one">%1$d archivo copiado</item>
+    </plurals>
+    <plurals name="download_service_failed">
+        <item quantity="other">%1$d contenidos no descargados</item>
+        <item quantity="one">%1$d contenido no descargado</item>
+    </plurals>
+    <plurals name="download_service_final_notification">
+        <item quantity="other">%1$d contenidos descargados</item>
+        <item quantity="one">%1$d contenido descargado</item>
+    </plurals>
+    <plurals name="download_service_final_notification_with_details">
+        <item quantity="other">Se han descargado %1$d de %2$d</item>
+        <item quantity="one">Se ha descargado %1$d de %2$d</item>
+    </plurals>
+    <plurals name="download_service_notification">
+        <item quantity="other">%1$d de %2$d…</item>
+        <item quantity="one">%1$d de %2$d</item>
+    </plurals>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+        <item quantity="other">Fast forward %d seconds</item>
+        <item quantity="one">Fast forward %d second</item>
+    </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+        <item quantity="other">Rewind %d seconds</item>
+        <item quantity="one">Rewind %d second</item>
+    </plurals>
+    <plurals name="general_num_files">
+        <item quantity="other">files</item>
+        <item quantity="one">file</item>
+    </plurals>
+    <plurals name="general_num_folders">
+        <item quantity="other">carpetas</item>
+        <item quantity="one">carpeta</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="other">%d new notifications</item>
+        <item quantity="one">%d new notification</item>
+    </plurals>
+    <plurals name="upload_service_failed">
+        <item quantity="other">%1$d archivos no subidos</item>
+        <item quantity="one">%1$d archivo no subido</item>
+    </plurals>
+    <plurals name="upload_service_final_notification">
+        <item quantity="other">%1$d archivos subidos</item>
+        <item quantity="one">%1$d archivo subido</item>
+    </plurals>
+    <plurals name="upload_service_notification">
+        <item quantity="other">Subiendo %1$d de %2$d archivos</item>
+        <item quantity="one">Subiendo %1$d de %2$d archivo</item>
+    </plurals>
+</resources>

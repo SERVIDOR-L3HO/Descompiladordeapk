@@ -1,0 +1,227 @@
+.class Lcom/google/firebase/database/core/h$o;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Ljava/util/concurrent/Callable;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/google/firebase/database/core/h;->F(Lcom/google/firebase/database/core/Path;Lcom/google/firebase/database/snapshot/Node;Lob2;)Ljava/util/List;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic a:Lob2;
+
+.field final synthetic b:Lcom/google/firebase/database/core/Path;
+
+.field final synthetic c:Lcom/google/firebase/database/snapshot/Node;
+
+.field final synthetic d:Lcom/google/firebase/database/core/h;
+
+
+# direct methods
+.method constructor <init>(Lcom/google/firebase/database/core/h;Lob2;Lcom/google/firebase/database/core/Path;Lcom/google/firebase/database/snapshot/Node;)V
+    .locals 0
+
+    .line 1
+    .line 2
+    iput-object p1, p0, Lcom/google/firebase/database/core/h$o;->d:Lcom/google/firebase/database/core/h;
+
+    .line 3
+    .line 4
+    iput-object p2, p0, Lcom/google/firebase/database/core/h$o;->a:Lob2;
+
+    .line 5
+    .line 6
+    iput-object p3, p0, Lcom/google/firebase/database/core/h$o;->b:Lcom/google/firebase/database/core/Path;
+
+    .line 7
+    .line 8
+    iput-object p4, p0, Lcom/google/firebase/database/core/h$o;->c:Lcom/google/firebase/database/snapshot/Node;
+
+    .line 9
+    .line 10
+    .line 11
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 12
+    return-void
+.end method
+
+
+# virtual methods
+.method public a()Ljava/util/List;
+    .locals 5
+
+    .line 1
+    .line 2
+    iget-object v0, p0, Lcom/google/firebase/database/core/h$o;->d:Lcom/google/firebase/database/core/h;
+
+    .line 3
+    .line 4
+    iget-object v1, p0, Lcom/google/firebase/database/core/h$o;->a:Lob2;
+
+    .line 5
+    .line 6
+    .line 7
+    invoke-static {v0, v1}, Lcom/google/firebase/database/core/h;->l(Lcom/google/firebase/database/core/h;Lob2;)Lcom/google/firebase/database/core/view/QuerySpec;
+
+    .line 8
+    move-result-object v0
+
+    .line 9
+    .line 10
+    if-eqz v0, :cond_1
+
+    .line 11
+    .line 12
+    .line 13
+    invoke-virtual {v0}, Lcom/google/firebase/database/core/view/QuerySpec;->e()Lcom/google/firebase/database/core/Path;
+
+    .line 14
+    move-result-object v1
+
+    .line 15
+    .line 16
+    iget-object v2, p0, Lcom/google/firebase/database/core/h$o;->b:Lcom/google/firebase/database/core/Path;
+
+    .line 17
+    .line 18
+    .line 19
+    invoke-static {v1, v2}, Lcom/google/firebase/database/core/Path;->v(Lcom/google/firebase/database/core/Path;Lcom/google/firebase/database/core/Path;)Lcom/google/firebase/database/core/Path;
+
+    .line 20
+    move-result-object v1
+
+    .line 21
+    .line 22
+    .line 23
+    invoke-virtual {v1}, Lcom/google/firebase/database/core/Path;->isEmpty()Z
+
+    .line 24
+    move-result v2
+
+    .line 25
+    .line 26
+    if-eqz v2, :cond_0
+
+    .line 27
+    move-object v2, v0
+
+    .line 28
+    goto :goto_0
+
+    .line 29
+    .line 30
+    :cond_0
+    iget-object v2, p0, Lcom/google/firebase/database/core/h$o;->b:Lcom/google/firebase/database/core/Path;
+
+    .line 31
+    .line 32
+    .line 33
+    invoke-static {v2}, Lcom/google/firebase/database/core/view/QuerySpec;->a(Lcom/google/firebase/database/core/Path;)Lcom/google/firebase/database/core/view/QuerySpec;
+
+    .line 34
+    move-result-object v2
+
+    .line 35
+    .line 36
+    :goto_0
+    iget-object v3, p0, Lcom/google/firebase/database/core/h$o;->d:Lcom/google/firebase/database/core/h;
+
+    .line 37
+    .line 38
+    .line 39
+    invoke-static {v3}, Lcom/google/firebase/database/core/h;->c(Lcom/google/firebase/database/core/h;)Lfk1;
+
+    .line 40
+    move-result-object v3
+
+    .line 41
+    .line 42
+    iget-object v4, p0, Lcom/google/firebase/database/core/h$o;->c:Lcom/google/firebase/database/snapshot/Node;
+
+    .line 43
+    .line 44
+    .line 45
+    invoke-interface {v3, v2, v4}, Lfk1;->o(Lcom/google/firebase/database/core/view/QuerySpec;Lcom/google/firebase/database/snapshot/Node;)V
+
+    .line 46
+    .line 47
+    new-instance v2, Lcom/google/firebase/database/core/operation/d;
+
+    .line 48
+    .line 49
+    .line 50
+    invoke-virtual {v0}, Lcom/google/firebase/database/core/view/QuerySpec;->d()Lcom/google/firebase/database/core/view/QueryParams;
+
+    .line 51
+    move-result-object v3
+
+    .line 52
+    .line 53
+    .line 54
+    invoke-static {v3}, Lcom/google/firebase/database/core/operation/OperationSource;->a(Lcom/google/firebase/database/core/view/QueryParams;)Lcom/google/firebase/database/core/operation/OperationSource;
+
+    .line 55
+    move-result-object v3
+
+    .line 56
+    .line 57
+    iget-object v4, p0, Lcom/google/firebase/database/core/h$o;->c:Lcom/google/firebase/database/snapshot/Node;
+
+    .line 58
+    .line 59
+    .line 60
+    invoke-direct {v2, v3, v1, v4}, Lcom/google/firebase/database/core/operation/d;-><init>(Lcom/google/firebase/database/core/operation/OperationSource;Lcom/google/firebase/database/core/Path;Lcom/google/firebase/database/snapshot/Node;)V
+
+    .line 61
+    .line 62
+    iget-object v1, p0, Lcom/google/firebase/database/core/h$o;->d:Lcom/google/firebase/database/core/h;
+
+    .line 63
+    .line 64
+    .line 65
+    invoke-static {v1, v0, v2}, Lcom/google/firebase/database/core/h;->m(Lcom/google/firebase/database/core/h;Lcom/google/firebase/database/core/view/QuerySpec;Lcom/google/firebase/database/core/operation/Operation;)Ljava/util/List;
+
+    .line 66
+    move-result-object v0
+
+    .line 67
+    return-object v0
+
+    .line 68
+    .line 69
+    .line 70
+    :cond_1
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+
+    .line 71
+    move-result-object v0
+
+    .line 72
+    return-object v0
+.end method
+
+.method public bridge synthetic call()Ljava/lang/Object;
+    .locals 1
+
+    .line 1
+    .line 2
+    .line 3
+    invoke-virtual {p0}, Lcom/google/firebase/database/core/h$o;->a()Ljava/util/List;
+
+    .line 4
+    move-result-object v0
+
+    .line 5
+    return-object v0
+.end method

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/colorPrimary" android:layout_width="fill_parent" android:layout_height="fill_parent" android:keepScreenOn="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:z="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.appbar.AppBarLayout android:theme="@style/AppTheme.AppBarOverlay" android:id="@id/tool" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar android:id="@id/toolbar" android:background="@color/colorPrimary" android:layout_width="fill_parent" android:layout_height="?actionBarSize" z:popupTheme="@style/AppTheme.PopupOverlay" />
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.core.widget.NestedScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/tool">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <ImageView android:id="@id/imgPromo" android:layout_width="fill_parent" android:layout_height="200.0dip" android:layout_marginTop="10.0dip" android:src="@drawable/logo_new" />
+            <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/white" android:id="@id/infoPromo" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="10.0dip" android:text="" android:layout_marginStart="20.0dip" android:layout_marginEnd="20.0dip" />
+            <Button android:textColor="@color/white" android:layout_gravity="center" android:id="@id/requisito1" android:background="@drawable/border_button" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="  Requisito 1 Seguir a: @z.movie  " android:layout_marginStart="10.0dip" />
+            <Button android:textColor="@color/white" android:layout_gravity="center" android:id="@id/requisito2" android:background="@drawable/border_button" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="  Requisito 2 Seguir a: @elartedezeta  " android:layout_marginStart="10.0dip" />
+            <Button android:textColor="@color/white" android:layout_gravity="center" android:id="@id/requisito3" android:background="@drawable/border_button" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="  Requisito 3 Seguir a: @jeanhermarico  " android:layout_marginStart="10.0dip" />
+            <Button android:textColor="@color/white" android:layout_gravity="center" android:id="@id/requisito4" android:background="@drawable/border_button" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="  Requisito 4 Comentar Publicacion  " android:layout_marginStart="10.0dip" />
+            <Button android:textColor="@color/white" android:layout_gravity="center" android:id="@id/requisito5" android:background="@drawable/border_button" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="  Requisito 5 Compartir Publicacion  " android:layout_marginStart="10.0dip" />
+            <Button android:textColor="@color/white" android:layout_gravity="center" android:id="@id/apply" android:background="@drawable/border_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="  Aplicar  " android:layout_marginStart="10.0dip" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

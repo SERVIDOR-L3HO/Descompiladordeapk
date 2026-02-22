@@ -1,0 +1,3 @@
+.class public final Landroidx/core/graphics/PathKt;
+.super Ljava/lang/Object;
+.source "SourceFile"

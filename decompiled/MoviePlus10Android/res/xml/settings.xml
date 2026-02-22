@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:icon="@mipmap/ic_launcher" android:title="@string/action_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:z="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory android:title="Control Parental">
+        <Preference android:title="Activar/Desactivar" android:key="@string/lock" android:summary="Establece un bloqueo con contraseña para acceder a contenidos." />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Administrar Cuenta">
+        <EditTextPreference android:title="Codigo Premium" android:key="@string/premium" android:summary="Ingresa tu Código" android:inputType="text" z:isPreferenceVisible="false" />
+        <Preference android:title="Mi Cuenta" android:key="@string/account" android:summary="Gestiona tu cuenta de Movie! Plus PREMIUM" />
+        <CheckBoxPreference android:title="Canjeo Automático de Puntos" android:key="@string/availablePointsAutomatic" android:summary="Toca para activar/desactivar el canjeo automático de puntos para evitar el mensaje de confirmación." />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Preferencia de Calidad para Peliculas" android:summary="Establece tu preferencia de calidad">
+        <CheckBoxPreference android:title="4K" android:key="@string/q_4K" android:summary="La mejor resolución pero con mucho tamaño." />
+        <CheckBoxPreference android:title="60fps" android:key="@string/q_60fps" android:summary="¿Te gusta ver en 30fps o ver las películas con mas fluidez 60fps?" />
+        <CheckBoxPreference android:title="1080p" android:key="@string/q_1080p" android:summary="Calidad de preferencia para muchos." />
+        <CheckBoxPreference android:title="720p" android:key="@string/q_720p" android:summary="Calidad de preferencia para una velocidad de internet baja." />
+        <Preference android:title="Calidad Repetida" android:summary="¿Que pasa si hay varias calidades de la sección de preferencia? Para eso selecciona que opcion usar a continuacion" />
+        <CheckBoxPreference android:title="Tamaño más alto" android:key="@string/q_mayor" android:summary="Si existen varias calidades se seleccionará el mayor, es de decir si está 1080p 4gb,1080p 3gb, 1080p 1gb, se seleccionará 4gb." />
+        <CheckBoxPreference android:title="Tamaño más bajo" android:key="@string/q_menor" android:summary="Condición contraria a Tamaño mas Alto." />
+        <CheckBoxPreference android:title="Preguntar" android:key="@string/q_all" android:summary="Se mostrarán todas las calidades como de costumbre." />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Optimización">
+        <CheckBoxPreference android:title="Fast The Movie DB" android:key="@string/themoviedb" android:summary="Al desmarcar esta opción se desactiva la lectura rápida a la base de datos, causando que los tiempos de carga sean ALTOS al seleccionar un contenido (portada) de la lista, sea en el menu principal, o dentro de un contenido en Recomendados/Similares. Pero tambien puede corregir si no te carga el contenido." />
+        <CheckBoxPreference android:title="Recomendados, Similares, Trailers" android:key="@string/recomendados" android:summary="Al desmarcar esta opción se desactiva la sección de recomendados, similares, trailers, reparto para cada contenido y así mejorar el rendimiento o tiempos de carga cuando selecciones un contenido." />
+        <CheckBoxPreference android:title="Reproducir desde Streaming Local" android:key="@string/streaminglocal" android:summary="Desactiva si no quieres reproducir desde el Streaming de Movie! Plus (LOCAL) para reproducir directamente del servidor (no todos los reproductores/dispositivos lo soportan, es decir no funciona) Esto puede mejorar la velocidad de reproducción al desactivarse." />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Búsqueda">
+        <CheckBoxPreference android:title="Usar Buscador Avanzado Directamete" android:key="@string/searchAvanced" android:summary="Realiza la búsqueda avanzada (La que aparece junto con búsqueda de Actor/Director) directamente desde la lupa y reemplaza el buscador tradicional. IMPORTANTE: Esto deshabilita la búsqueda instantanea, por lo que debes de presionar el boton de LUPA en el teclado al buscar." />
+        <CheckBoxPreference android:title="Incluir Actor/Director" android:key="@string/searchAvancedInclude" android:summary="Incluye en la búsqueda avanzada el director o actor a buscar. (Esto puede alargar unos segundos la búsqueda)." />
+        <CheckBoxPreference android:title="Global" android:key="@string/global" android:summary="Busca directamente títulos tanto Animes, Cartoons, Películas, Series, Telenovelas." />
+        <CheckBoxPreference android:title="Separada" android:key="@string/separada" android:summary="Seleccionas qué contenido buscar." />
+        <CheckBoxPreference android:title="Slide Category" android:key="@string/slide" android:summary="Desplazate hacia las categorías de contenido deslizando hacia izquierda o derecha." />
+        <CheckBoxPreference android:title="Búsqueda Instantanea" android:key="@string/busquedaI" android:summary="Cuando usas el buscador directamente desde la LUPA, al escribir en el campo de texto esta funcion buscara automaticamente el texto escrito, de lo contrario tendras que presionar el boton de la lupa en el teclado." />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Modos de Vista">
+        <Preference android:title="Tamaño de Portadas" android:key="@string/zoomD" android:summary="Establece según el tamaño, cuantas portadas mostrar." />
+        <CheckBoxPreference android:title="Títulos" android:key="@string/vista_t" android:summary="Activa o desactiva los títulos para cada contenido." />
+        <CheckBoxPreference android:title="Calidades y Banderas" android:key="@string/qualitys" android:summary="Activa o desactiva las calidades y Bandera de Idiomas en las portadas." />
+        <CheckBoxPreference android:enabled="false" android:title="Listado alfabético" android:key="@string/vista_l" android:summary="Activar si deseas disminuir el uso de memoria, así obtienes un mejor rendimiento y más fluidez. (solo aplica para la visualización del contenido.)" z:isPreferenceVisible="false" />
+        <CheckBoxPreference android:enabled="false" android:title="Vista previa" android:key="@string/vista_p" android:summary="Vista previa del contenido (portada)." z:isPreferenceVisible="false" />
+        <CheckBoxPreference android:title="Lista de Capítulos" android:key="@string/lista_cap" android:summary="Si está activado, los capítulos se mostrarán de manera DESCENDENTE, es decir: MAYOR A MENOR. Desactiva para su función contraria: MENOR A MAYOR." />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Reproductor Movie! Plus">
+        <EditTextPreference android:title="Reproducción Automatica" android:key="@string/autoreproducir" android:summary="Ingresa el Valor en Segundos, ejemplo 3 segundos (sin espacios y sin letras, solo NÚMEROS), Ingresa 0 para desactivar esta función." android:inputType="number" />
+        <EditTextPreference android:title="Buffer para Repr. Movie! Plus" android:key="@string/buffer" android:summary="Ingresa el Valor en Segundos, ejemplo 10 segundos (sin espacios y sin letras, solo NÚMEROS). Esto solo funciona para el Reproductor de Movie! Plus y el valor máximo es 60 equivalente a 1 minuto y 0 para desactivar esta funcion." android:inputType="number" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Reproductor por defecto">
+        <CheckBoxPreference android:title="Movie! Plus" android:key="@string/cm_defecto" />
+        <CheckBoxPreference android:title="VLC" android:key="@string/vlc_defecto" />
+        <CheckBoxPreference android:title="X Player" android:key="@string/x_defecto" />
+        <CheckBoxPreference android:title="MX Player" android:key="@string/mx_defecto" />
+        <CheckBoxPreference android:title="Otros" android:key="@string/otros_defecto" android:summary="Muestra todos los reproductores instalados." />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Ajustes Especiales">
+        <Preference android:title="Optimización de Batería" android:key="@string/disabledoze" android:summary="Toque para deshabilitar Android Doze para Movie! Plus, agregándolo manualmente a la lista blanca 'Aplicaciones no optimizadas'. Recomendado para un funcionamiento correcto sin interrupciones en segundo plano (Streaming/Descarga)." />
+        <CheckBoxPreference android:title="Aceleración Hardware" android:key="@string/hardware" android:summary="Sí está activado, y si tu dispositivo lo soporta, esto ayuda a ser mas eficiente/rapida la aplicación, sin embargo si tu dispositivo no lo soporta, tendras dificultades con la app, como cierres inesperados, lentitud (entre otros) y será mejor desactivar esta opción. Al activar/desactivar se cierra la app automaticamente." />
+        <CheckBoxPreference android:title="Escanear Wi-Fi" android:key="@string/checkwifi" android:summary="Esta opción te ayuda/advierte si estas conectado bajo una red wifi 2.4Ghz y existe la disponibilidad de una red Wi-Fi 5Ghz, que siempre está será mejor, con mayor velocidad y rendimiento para Movie! Plus." />
+        <EditTextPreference android:title="Actualización de Contenido" android:key="@string/cache" android:summary="Por defecto el contenido se actualiza cada 15 minutos; es decir, si has abierto la aplicación a las 2:35PM y hemos agregado contenido a las 2:40PM no verás reflejado el contenido hasta las 2:45PM; puedes cambiar este valor." android:inputType="number" />
+        <CheckBoxPreference android:title="Arreglo de Contenido" android:key="@string/fix" android:summary="Desactiva esta opción si presentas dificultad de velocidad (aún teniendo una conexión estable a Internet) o las Reproducciones/Descargas no inician. Si vuelves a tener dificultad para otros archivos activa nuevamente esta función (puedes presentar inconvenientes como: No reproduce.)." />
+        <CheckBoxPreference android:title="Integridad de Archivos" android:key="@string/checkfile" android:summary="Comprobar la integridad del archivo, esto permite detectar si el archivo a reproducir o descargar está funcionando o está fuera de linea; desactiva esta función si no quieres comprobar el archivo primero antes de realizar cualquier acción." />
+        <EditTextPreference android:title="Puerto" android:key="@string/puerto" android:summary="Por defecto es: 4442" android:inputType="number" />
+        <Preference android:title="Destino de descargas" android:key="@string/rutadescargas" />
+        <EditTextPreference android:title="Número de Descargas Activas" android:key="@string/numDownloads" android:summary="El número de descargas activas permitidas, para que esto surga efecto no debe de existir una descarga ya en curso, de lo contrario tendrás que esperar que terminen todas las descargas, cerrar la app y volver a comenzar una nueva." android:inputType="number" />
+        <CheckBoxPreference android:title="Acelerador de Descargas" android:key="@string/acelerador_down" android:summary="Esto puede acelerar las descargas (SOLO PARA EL NUEVO SERVIDOR, NUEVO CONTENIDO), sin embargo si NO tienes una buena VELOCIDAD DE INTERNET (50Mbps como mínimo) se recomienda dejar desactivada esta opción, ya que puede arrojar el error: REQUEST_NOT_SUCCESSFUL, de recibir este error; hay que desactivar esta opcion y las descargas en ejecusión se borrarán aplica el mismo efecto si fuese en sentido contrario." z:isPreferenceVisible="false" />
+        <Preference android:title="Importar/Exportar Conf." android:key="@string/conf" android:summary="Guarda una copia de los datos de la aplicación." />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Información">
+        <Preference android:title="Report Abuse – DMCA" android:key="@string/reportdmca" />
+        <Preference android:title="Aviso Legal." android:key="@string/avisolegal" />
+        <Preference android:title="Términos y condiciones." android:key="@string/terminos" />
+        <Preference android:title="LICENSES LIBRARY" android:key="@string/acercade" android:summary="Obtén información de Movie! Plus y las LICENCIAS de Código Abierto de las librerías" />
+        <Preference android:title="Personalización de Anuncios" android:key="@string/anuncios" android:summary="Si perteneces a la UE, puedes cambiar como se entregan los anuncios." z:isPreferenceVisible="false" />
+        <CheckBoxPreference android:title="Permitir todas las Conexiones" android:key="@string/trustAllHosts" android:summary="Activar/Desactivar el permitir todas las conexiones por si presentas intermitencia de contenido y/o errores del mismo. (Solo se recomienda en caso extremo)." />
+        <Preference android:title="Movie! Plus" android:key="@string/movie" android:summary="" />
+    </PreferenceCategory>
+</PreferenceScreen>

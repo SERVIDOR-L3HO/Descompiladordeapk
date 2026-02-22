@@ -1,4 +1,5 @@
 import os
+import requests
 import subprocess
 import shutil
 from flask import Flask, render_template, request, jsonify, send_file, redirect, url_for
@@ -6,6 +7,9 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SESSION_SECRET")
+TMDB_API_KEY = "ec4ff1b6182572d3e74735e74ca3a8ef"
+TMDB_BASE_URL = "https://api.themoviedb.org/3"
+
 app.config['UPLOAD_FOLDER'] = 'uploads'
 app.config['DECOMPILED_FOLDER'] = 'decompiled'
 app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024
@@ -42,6 +46,26 @@ def get_directory_tree(path, base_path=""):
     except PermissionError:
         pass
     return tree
+
+@app.route('/movies')
+def movies():
+    query = request.args.get('q', '')
+    if query:
+        url = f"{TMDB_BASE_URL}/search/movie"
+        params = {'api_key': TMDB_API_KEY, 'query': query, 'language': 'es-ES'}
+    else:
+        url = f"{TMDB_BASE_URL}/movie/popular"
+        params = {'api_key': TMDB_API_KEY, 'language': 'es-ES'}
+    
+    try:
+        response = requests.get(url, params=params)
+        data = response.json()
+        movies_list = data.get('results', [])
+    except Exception as e:
+        movies_list = []
+        print(f"Error TMDB: {e}")
+        
+    return render_template('movies.html', movies=movies_list, query=query)
 
 @app.route('/')
 def index():
@@ -112,7 +136,6 @@ def view_project(project_name):
     if not os.path.exists(project_path):
         return redirect(url_for('index'))
     
-    # Check if compiled APK exists
     compiled_apk = os.path.join(app.config['DECOMPILED_FOLDER'], f"{project_name}_compiled.apk")
     has_compiled = os.path.exists(compiled_apk)
     
@@ -128,7 +151,6 @@ def compile_project(project_name):
     output_apk = os.path.join(app.config['DECOMPILED_FOLDER'], f"{project_name}_compiled.apk")
     
     try:
-        # Step 1: Build APK
         result = subprocess.run(
             ['apktool', 'b', project_path, '-o', output_apk],
             capture_output=True,
@@ -139,9 +161,6 @@ def compile_project(project_name):
         if result.returncode != 0:
             return jsonify({'error': 'Error al compilar', 'details': result.stderr}), 500
             
-        # Optional: Sign the APK (using a debug key if available, otherwise just mention it's unsigned)
-        # For now, we just return success with the compiled APK
-        
         return jsonify({
             'success': True,
             'message': 'APK compilado exitosamente',

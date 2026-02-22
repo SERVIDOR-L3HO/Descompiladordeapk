@@ -1,0 +1,47 @@
+.class public abstract Landroidx/core/content/UnusedAppRestrictionsBackportService;
+.super Landroid/app/Service;
+.source "SourceFile"
+
+
+# instance fields
+.field private a:Landroidx/core/app/unusedapprestrictions/IUnusedAppRestrictionsBackportService$Stub;
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 1
+
+    .line 1
+    .line 2
+    .line 3
+    invoke-direct {p0}, Landroid/app/Service;-><init>()V
+
+    .line 4
+    .line 5
+    new-instance v0, Landroidx/core/content/UnusedAppRestrictionsBackportService$1;
+
+    .line 6
+    .line 7
+    .line 8
+    invoke-direct {v0, p0}, Landroidx/core/content/UnusedAppRestrictionsBackportService$1;-><init>(Landroidx/core/content/UnusedAppRestrictionsBackportService;)V
+
+    .line 9
+    .line 10
+    iput-object v0, p0, Landroidx/core/content/UnusedAppRestrictionsBackportService;->a:Landroidx/core/app/unusedapprestrictions/IUnusedAppRestrictionsBackportService$Stub;
+
+    .line 11
+    return-void
+.end method
+
+
+# virtual methods
+.method protected abstract a(Landroidx/core/content/UnusedAppRestrictionsBackportCallback;)V
+.end method
+
+.method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
+    .locals 0
+
+    iget-object p1, p0, Landroidx/core/content/UnusedAppRestrictionsBackportService;->a:Landroidx/core/app/unusedapprestrictions/IUnusedAppRestrictionsBackportService$Stub;
+
+    return-object p1
+.end method
