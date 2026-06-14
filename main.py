@@ -7,7 +7,7 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SESSION_SECRET")
-TMDB_API_KEY = "ec4ff1b6182572d3e74735e74ca3a8ef"
+TMDB_API_KEY = os.environ.get("TMDB_API_KEY", "ec4ff1b6182572d3e74735e74ca3a8ef")
 TMDB_BASE_URL = "https://api.themoviedb.org/3"
 
 app.config['UPLOAD_FOLDER'] = 'uploads'
