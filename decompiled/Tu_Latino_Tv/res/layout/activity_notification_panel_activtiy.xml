@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:background="@drawable/dashboard_background" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.appbar.AppBarLayout android:id="@id/appbar_toolbar" android:background="@drawable/dashboard_background" android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <androidx.appcompat.widget.Toolbar android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" android:id="@id/toolbar" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="65.0dip" android:minHeight="?actionBarSize" app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+                <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layoutDirection="locale">
+                    <ImageView android:layout_gravity="center" android:id="@id/iv_back_button" android:background="@drawable/blur_lens_selector" android:layout_width="55.0dip" android:layout_height="fill_parent" android:src="@drawable/hp_arrow_back" android:paddingStart="8.0dip" android:paddingEnd="18.0dip" />
+                    <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="marquee" android:gravity="center" android:id="@id/tv_movie_name" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="NOTIFICATION" android:scrollHorizontally="true" android:singleLine="true" android:freezesText="true" android:layout_centerInParent="true" android:marqueeRepeatLimit="marquee_forever" android:fontFamily="@font/roboto_medium_numbers" android:textDirection="locale" android:paddingEnd="2.0dip" android:layout_marginEnd="55.0dip" android:layout_toEndOf="@id/iv_back_button" />
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:weightSum="1.0">
+                <View android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="0.1" />
+                <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:weightSum="1.0" android:layout_weight="0.8">
+                    <View android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="0.05" />
+                    <LinearLayout android:orientation="horizontal" android:background="@color/notification_background_color" android:padding="30.0dip" android:layout_width="0.0dip" android:layout_height="fill_parent" android:weightSum="1.0" android:layout_weight="0.9">
+                        <RelativeLayout android:id="@id/ll_image" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="0.4">
+                            <pl.droidsonroids.gif.GifImageButton android:id="@id/gif_file" android:background="@color/transparent" android:padding="130.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/loader_notification" android:scaleType="centerInside" />
+                            <ImageView android:id="@id/iv_image" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="fitXY" />
+                        </RelativeLayout>
+                        <View android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="0.02" />
+                        <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginRight="20.0dip" android:layout_weight="0.6">
+                            <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="0.05">
+                                <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/white" android:ellipsize="end" android:gravity="start|center" android:id="@id/tv_title" android:paddingLeft="16.0dip" android:paddingRight="16.0dip" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="fill_parent" android:maxLines="1" android:singleLine="true" />
+                            </LinearLayout>
+                            <ScrollView android:paddingLeft="2.0dip" android:paddingRight="2.0dip" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="0.25">
+                                <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                                    <TextView android:textSize="12.0sp" android:textColor="@color/white" android:id="@id/tv_description" android:paddingLeft="16.0dip" android:paddingRight="5.0dip" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="fill_parent" android:lineSpacingExtra="4.0dip" />
+                                </LinearLayout>
+                            </ScrollView>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <View android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="0.05" />
+                </LinearLayout>
+                <View android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="0.1" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+</LinearLayout>

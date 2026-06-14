@@ -1,0 +1,110 @@
+.class public Lcom/newworldplus/newworldplusbox/view/activity/VodAllDataSingleActivity$p;
+.super Landroid/os/AsyncTask;
+.source ""
+
+
+# annotations
+.annotation build Landroid/annotation/SuppressLint;
+    value = {
+        "StaticFieldLeak"
+    }
+.end annotation
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/newworldplus/newworldplusbox/view/activity/VodAllDataSingleActivity;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = "p"
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Landroid/os/AsyncTask<",
+        "Ljava/lang/String;",
+        "Ljava/lang/Void;",
+        "Ljava/lang/Boolean;",
+        ">;"
+    }
+.end annotation
+
+
+# instance fields
+.field public final synthetic a:Lcom/newworldplus/newworldplusbox/view/activity/VodAllDataSingleActivity;
+
+
+# direct methods
+.method public constructor <init>(Lcom/newworldplus/newworldplusbox/view/activity/VodAllDataSingleActivity;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/newworldplus/newworldplusbox/view/activity/VodAllDataSingleActivity$p;->a:Lcom/newworldplus/newworldplusbox/view/activity/VodAllDataSingleActivity;
+
+    invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public varargs a([Ljava/lang/String;)Ljava/lang/Boolean;
+    .locals 0
+
+    :try_start_0
+    iget-object p1, p0, Lcom/newworldplus/newworldplusbox/view/activity/VodAllDataSingleActivity$p;->a:Lcom/newworldplus/newworldplusbox/view/activity/VodAllDataSingleActivity;
+
+    invoke-static {p1}, Lcom/newworldplus/newworldplusbox/view/activity/VodAllDataSingleActivity;->S2(Lcom/newworldplus/newworldplusbox/view/activity/VodAllDataSingleActivity;)Ljava/lang/Boolean;
+
+    move-result-object p1
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object p1
+
+    :catch_0
+    sget-object p1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+
+    return-object p1
+.end method
+
+.method public b(Ljava/lang/Boolean;)V
+    .locals 0
+
+    invoke-super {p0, p1}, Landroid/os/AsyncTask;->onPostExecute(Ljava/lang/Object;)V
+
+    iget-object p1, p0, Lcom/newworldplus/newworldplusbox/view/activity/VodAllDataSingleActivity$p;->a:Lcom/newworldplus/newworldplusbox/view/activity/VodAllDataSingleActivity;
+
+    invoke-static {p1}, Lcom/newworldplus/newworldplusbox/view/activity/VodAllDataSingleActivity;->T2(Lcom/newworldplus/newworldplusbox/view/activity/VodAllDataSingleActivity;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
+
+    check-cast p1, [Ljava/lang/String;
+
+    invoke-virtual {p0, p1}, Lcom/newworldplus/newworldplusbox/view/activity/VodAllDataSingleActivity$p;->a([Ljava/lang/String;)Ljava/lang/Boolean;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public bridge synthetic onPostExecute(Ljava/lang/Object;)V
+    .locals 0
+
+    check-cast p1, Ljava/lang/Boolean;
+
+    invoke-virtual {p0, p1}, Lcom/newworldplus/newworldplusbox/view/activity/VodAllDataSingleActivity$p;->b(Ljava/lang/Boolean;)V
+
+    return-void
+.end method
+
+.method public onPreExecute()V
+    .locals 0
+
+    invoke-super {p0}, Landroid/os/AsyncTask;->onPreExecute()V
+
+    return-void
+.end method

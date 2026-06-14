@@ -1,0 +1,111 @@
+.class public Ln/a/a/f$a;
+.super Ln/a/a/f$b;
+.source ""
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Ln/a/a/f;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "a"
+.end annotation
+
+
+# instance fields
+.field public final c:I
+
+.field public final d:I
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 1
+
+    invoke-direct {p0}, Ln/a/a/f$b;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Ln/a/a/f$a;->c:I
+
+    iput v0, p0, Ln/a/a/f$a;->d:I
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/widget/ImageView;Landroid/util/AttributeSet;II)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3, p4}, Ln/a/a/f$b;-><init>(Landroid/view/View;Landroid/util/AttributeSet;II)V
+
+    const/4 p3, 0x1
+
+    invoke-static {p1, p2, p3}, Ln/a/a/f$a;->a(Landroid/widget/ImageView;Landroid/util/AttributeSet;Z)I
+
+    move-result p3
+
+    iput p3, p0, Ln/a/a/f$a;->c:I
+
+    const/4 p3, 0x0
+
+    invoke-static {p1, p2, p3}, Ln/a/a/f$a;->a(Landroid/widget/ImageView;Landroid/util/AttributeSet;Z)I
+
+    move-result p1
+
+    iput p1, p0, Ln/a/a/f$a;->d:I
+
+    return-void
+.end method
+
+.method public static a(Landroid/widget/ImageView;Landroid/util/AttributeSet;Z)I
+    .locals 3
+
+    if-eqz p2, :cond_0
+
+    const-string v0, "src"
+
+    goto :goto_0
+
+    :cond_0
+    const-string v0, "background"
+
+    :goto_0
+    const-string v1, "http://schemas.android.com/apk/res/android"
+
+    const/4 v2, 0x0
+
+    invoke-interface {p1, v1, v0, v2}, Landroid/util/AttributeSet;->getAttributeResourceValue(Ljava/lang/String;Ljava/lang/String;I)I
+
+    move-result p1
+
+    if-lez p1, :cond_1
+
+    invoke-virtual {p0}, Landroid/widget/ImageView;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Landroid/content/res/Resources;->getResourceTypeName(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    sget-object v1, Ln/a/a/f;->a:Ljava/util/List;
+
+    invoke-interface {v1, v0}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-static {p0, p2, p1}, Ln/a/a/f;->e(Landroid/widget/ImageView;ZI)Z
+
+    move-result p0
+
+    if-nez p0, :cond_1
+
+    return p1
+
+    :cond_1
+    return v2
+.end method

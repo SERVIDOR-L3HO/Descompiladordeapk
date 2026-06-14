@@ -1,0 +1,50 @@
+.class public interface abstract Ld/j/b/c/i5/w0/b;
+.super Ljava/lang/Object;
+.source ""
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Ld/j/b/c/i5/w0/b$a;,
+        Ld/j/b/c/i5/w0/b$b;
+    }
+.end annotation
+
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
+
+# virtual methods
+.method public abstract a(Ljava/lang/String;JJ)Ljava/io/File;
+.end method
+
+.method public abstract b(Ljava/lang/String;)Ld/j/b/c/i5/w0/o;
+.end method
+
+.method public abstract c(Ljava/lang/String;Ld/j/b/c/i5/w0/p;)V
+.end method
+
+.method public abstract d(Ljava/lang/String;JJ)J
+.end method
+
+.method public abstract e(Ljava/lang/String;JJ)Ld/j/b/c/i5/w0/j;
+.end method
+
+.method public abstract f(Ljava/lang/String;JJ)J
+.end method
+
+.method public abstract g()J
+.end method
+
+.method public abstract h(Ld/j/b/c/i5/w0/j;)V
+.end method
+
+.method public abstract i(Ljava/lang/String;JJ)Ld/j/b/c/i5/w0/j;
+.end method
+
+.method public abstract j(Ljava/io/File;J)V
+.end method
+
+.method public abstract k(Ljava/lang/String;)V
+.end method

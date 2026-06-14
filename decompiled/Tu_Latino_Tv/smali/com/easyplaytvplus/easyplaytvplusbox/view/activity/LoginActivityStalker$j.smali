@@ -1,0 +1,525 @@
+.class public Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;
+.super Ljava/lang/Object;
+.source ""
+
+# interfaces
+.implements Landroid/view/View$OnFocusChangeListener;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = "j"
+.end annotation
+
+
+# instance fields
+.field public final a:Landroid/view/View;
+
+.field public final synthetic c:Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;
+
+
+# direct methods
+.method public constructor <init>(Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;Landroid/view/View;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->c:Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p2, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->a:Landroid/view/View;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final a(Z)V
+    .locals 3
+
+    if-eqz p1, :cond_1
+
+    if-eqz p1, :cond_0
+
+    const p1, 0x3f19999a    # 0.6f
+
+    goto :goto_0
+
+    :cond_0
+    const/high16 p1, 0x3f000000    # 0.5f
+
+    :goto_0
+    iget-object v0, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->a:Landroid/view/View;
+
+    const/4 v1, 0x1
+
+    new-array v1, v1, [F
+
+    const/4 v2, 0x0
+
+    aput p1, v1, v2
+
+    const-string p1, "alpha"
+
+    invoke-static {v0, p1, v1}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object p1
+
+    const-wide/16 v0, 0x96
+
+    invoke-virtual {p1, v0, v1}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
+
+    invoke-virtual {p1}, Landroid/animation/ObjectAnimator;->start()V
+
+    :cond_1
+    return-void
+.end method
+
+.method public final b(F)V
+    .locals 3
+
+    iget-object v0, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->a:Landroid/view/View;
+
+    const/4 v1, 0x1
+
+    new-array v1, v1, [F
+
+    const/4 v2, 0x0
+
+    aput p1, v1, v2
+
+    const-string p1, "scaleX"
+
+    invoke-static {v0, p1, v1}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object p1
+
+    const-wide/16 v0, 0x96
+
+    invoke-virtual {p1, v0, v1}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
+
+    invoke-virtual {p1}, Landroid/animation/ObjectAnimator;->start()V
+
+    return-void
+.end method
+
+.method public final c(F)V
+    .locals 3
+
+    iget-object v0, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->a:Landroid/view/View;
+
+    const/4 v1, 0x1
+
+    new-array v1, v1, [F
+
+    const/4 v2, 0x0
+
+    aput p1, v1, v2
+
+    const-string p1, "scaleY"
+
+    invoke-static {v0, p1, v1}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object p1
+
+    const-wide/16 v0, 0x96
+
+    invoke-virtual {p1, v0, v1}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
+
+    invoke-virtual {p1}, Landroid/animation/ObjectAnimator;->start()V
+
+    return-void
+.end method
+
+.method public onFocusChange(Landroid/view/View;Z)V
+    .locals 5
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "ResourceType"
+        }
+    .end annotation
+
+    const-string p1, "rl_bt_submit"
+
+    const-string v0, "rl_connect_vpn"
+
+    const-string v1, "rl_list_users"
+
+    const/high16 v2, 0x3f800000    # 1.0f
+
+    if-eqz p2, :cond_4
+
+    if-eqz p2, :cond_0
+
+    const v2, 0x3f933333    # 1.15f
+
+    :cond_0
+    :try_start_0
+    const-string p2, "id is"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, ""
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v4, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->a:Landroid/view/View;
+
+    invoke-virtual {v4}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {p2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object p2, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->a:Landroid/view/View;
+
+    invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object p2
+
+    const-string v3, "3"
+
+    invoke-virtual {p2, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result p2
+
+    if-eqz p2, :cond_1
+
+    iget-object p1, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->c:Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;
+
+    iget-object p1, p1, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;->e:Landroid/widget/EditText;
+
+    invoke-virtual {p1}, Landroid/widget/EditText;->length()I
+
+    move-result p2
+
+    invoke-virtual {p1, p2}, Landroid/widget/EditText;->setSelection(I)V
+
+    goto/16 :goto_2
+
+    :cond_1
+    iget-object p2, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->a:Landroid/view/View;
+
+    invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object p2
+
+    invoke-virtual {p2, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result p2
+
+    const v1, 0x7f0803b3
+
+    const v3, 0x7f0602ce
+
+    if-eqz p2, :cond_2
+
+    iget-object p1, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->c:Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;
+
+    iget-object p1, p1, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;->rl_list_users:Landroid/widget/RelativeLayout;
+
+    invoke-virtual {p1, v1}, Landroid/widget/RelativeLayout;->setBackgroundResource(I)V
+
+    iget-object p1, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->c:Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;
+
+    iget-object p1, p1, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;->iv_list_users:Landroid/widget/ImageView;
+
+    const p2, 0x7f0803bd
+
+    invoke-virtual {p1, p2}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    iget-object p1, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->c:Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;
+
+    iget-object p2, p1, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;->tv_list_users:Landroid/widget/TextView;
+
+    invoke-static {p1}, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;->R2(Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;)Landroid/content/Context;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    invoke-virtual {p1, v3}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result p1
+
+    invoke-virtual {p2, p1}, Landroid/widget/TextView;->setTextColor(I)V
+
+    invoke-virtual {p0, v2}, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->b(F)V
+
+    :goto_0
+    invoke-virtual {p0, v2}, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->c(F)V
+
+    goto/16 :goto_2
+
+    :cond_2
+    iget-object p2, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->a:Landroid/view/View;
+
+    invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object p2
+
+    invoke-virtual {p2, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result p2
+
+    if-eqz p2, :cond_3
+
+    iget-object p1, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->c:Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;
+
+    iget-object p1, p1, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;->rl_connect_vpn:Landroid/widget/RelativeLayout;
+
+    invoke-virtual {p1, v1}, Landroid/widget/RelativeLayout;->setBackgroundResource(I)V
+
+    iget-object p1, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->c:Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;
+
+    iget-object p1, p1, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;->iv_connect_vpn:Landroid/widget/ImageView;
+
+    const p2, 0x7f0803bb
+
+    invoke-virtual {p1, p2}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    iget-object p1, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->c:Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;
+
+    iget-object p2, p1, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;->tv_vpn_con:Landroid/widget/TextView;
+
+    invoke-static {p1}, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;->R2(Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;)Landroid/content/Context;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    invoke-virtual {p1, v3}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result p1
+
+    invoke-virtual {p2, p1}, Landroid/widget/TextView;->setTextColor(I)V
+
+    invoke-virtual {p0, v2}, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->b(F)V
+
+    goto :goto_0
+
+    :cond_3
+    iget-object p2, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->a:Landroid/view/View;
+
+    invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object p2
+
+    invoke-virtual {p2, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_8
+
+    iget-object p1, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->c:Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;
+
+    iget-object p1, p1, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;->rl_bt_submit:Landroid/widget/RelativeLayout;
+
+    const p2, 0x7f080092
+
+    invoke-virtual {p1, p2}, Landroid/widget/RelativeLayout;->setBackgroundResource(I)V
+
+    iget-object p1, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->c:Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;
+
+    iget-object p2, p1, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;->tv_add_user:Landroid/widget/TextView;
+
+    invoke-static {p1}, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;->R2(Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;)Landroid/content/Context;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    invoke-virtual {p1, v3}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result p1
+
+    invoke-virtual {p2, p1}, Landroid/widget/TextView;->setTextColor(I)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto/16 :goto_2
+
+    :catch_0
+    move-exception p1
+
+    invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto/16 :goto_2
+
+    :cond_4
+    if-nez p2, :cond_8
+
+    if-eqz p2, :cond_5
+
+    const v2, 0x3f8b851f    # 1.09f
+
+    :cond_5
+    invoke-virtual {p0, v2}, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->b(F)V
+
+    invoke-virtual {p0, v2}, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->c(F)V
+
+    invoke-virtual {p0, p2}, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->a(Z)V
+
+    iget-object p2, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->a:Landroid/view/View;
+
+    const v2, 0x7f0803b4
+
+    const v3, 0x7f0600d8
+
+    if-eqz p2, :cond_6
+
+    invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object p2
+
+    if-eqz p2, :cond_6
+
+    iget-object p2, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->a:Landroid/view/View;
+
+    invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object p2
+
+    invoke-virtual {p2, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result p2
+
+    if-eqz p2, :cond_6
+
+    iget-object p1, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->c:Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;
+
+    iget-object p1, p1, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;->rl_list_users:Landroid/widget/RelativeLayout;
+
+    invoke-virtual {p1, v2}, Landroid/widget/RelativeLayout;->setBackgroundResource(I)V
+
+    iget-object p1, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->c:Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;
+
+    iget-object p1, p1, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;->iv_list_users:Landroid/widget/ImageView;
+
+    const p2, 0x7f0803be
+
+    invoke-virtual {p1, p2}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    iget-object p1, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->c:Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;
+
+    iget-object p2, p1, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;->tv_list_users:Landroid/widget/TextView;
+
+    :goto_1
+    invoke-static {p1}, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;->R2(Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;)Landroid/content/Context;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    invoke-virtual {p1, v3}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result p1
+
+    invoke-virtual {p2, p1}, Landroid/widget/TextView;->setTextColor(I)V
+
+    goto :goto_2
+
+    :cond_6
+    iget-object p2, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->a:Landroid/view/View;
+
+    if-eqz p2, :cond_7
+
+    invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object p2
+
+    if-eqz p2, :cond_7
+
+    iget-object p2, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->a:Landroid/view/View;
+
+    invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object p2
+
+    invoke-virtual {p2, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result p2
+
+    if-eqz p2, :cond_7
+
+    iget-object p1, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->c:Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;
+
+    iget-object p1, p1, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;->rl_connect_vpn:Landroid/widget/RelativeLayout;
+
+    invoke-virtual {p1, v2}, Landroid/widget/RelativeLayout;->setBackgroundResource(I)V
+
+    iget-object p1, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->c:Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;
+
+    iget-object p1, p1, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;->iv_connect_vpn:Landroid/widget/ImageView;
+
+    const p2, 0x7f0803bc
+
+    invoke-virtual {p1, p2}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    iget-object p1, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->c:Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;
+
+    iget-object p2, p1, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;->tv_vpn_con:Landroid/widget/TextView;
+
+    goto :goto_1
+
+    :cond_7
+    iget-object p2, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->a:Landroid/view/View;
+
+    if-eqz p2, :cond_8
+
+    invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object p2
+
+    if-eqz p2, :cond_8
+
+    iget-object p2, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->a:Landroid/view/View;
+
+    invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object p2
+
+    invoke-virtual {p2, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_8
+
+    iget-object p1, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->c:Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;
+
+    iget-object p1, p1, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;->rl_bt_submit:Landroid/widget/RelativeLayout;
+
+    const p2, 0x7f080093
+
+    invoke-virtual {p1, p2}, Landroid/widget/RelativeLayout;->setBackgroundResource(I)V
+
+    iget-object p1, p0, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker$j;->c:Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;
+
+    iget-object p2, p1, Lcom/easyplaytvplus/easyplaytvplusbox/view/activity/LoginActivityStalker;->tv_add_user:Landroid/widget/TextView;
+
+    goto :goto_1
+
+    :cond_8
+    :goto_2
+    return-void
+.end method

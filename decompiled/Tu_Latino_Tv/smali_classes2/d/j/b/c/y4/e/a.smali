@@ -1,0 +1,34 @@
+.class public final synthetic Ld/j/b/c/y4/e/a;
+.super Ljava/lang/Object;
+.source ""
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# instance fields
+.field public final synthetic a:Ld/j/b/c/y4/e/i;
+
+
+# direct methods
+.method public synthetic constructor <init>(Ld/j/b/c/y4/e/i;)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Ld/j/b/c/y4/e/a;->a:Ld/j/b/c/y4/e/i;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final run()V
+    .locals 1
+
+    iget-object v0, p0, Ld/j/b/c/y4/e/a;->a:Ld/j/b/c/y4/e/i;
+
+    invoke-static {v0}, Ld/j/b/c/y4/e/i;->Y0(Ld/j/b/c/y4/e/i;)V
+
+    return-void
+.end method

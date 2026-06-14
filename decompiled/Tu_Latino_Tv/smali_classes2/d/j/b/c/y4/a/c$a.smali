@@ -1,0 +1,34 @@
+.class public Ld/j/b/c/y4/a/c$a;
+.super Ld/j/b/c/j5/b0;
+.source ""
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Ld/j/b/c/y4/a/c;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+
+# direct methods
+.method public varargs constructor <init>([Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Ld/j/b/c/j5/b0;-><init>([Ljava/lang/String;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public b(Ljava/lang/String;)V
+    .locals 0
+
+    invoke-static {p1}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    return-void
+.end method

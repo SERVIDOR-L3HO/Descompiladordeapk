@@ -1,0 +1,37 @@
+.class public Lcom/tulatinotv/tulatinotvbox/miscelleneious/chromecastfeature/ExpandedControlsActivity;
+.super Ld/j/b/e/e/u/u/m/a;
+.source ""
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Ld/j/b/e/e/u/u/m/a;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onCreateOptionsMenu(Landroid/view/Menu;)Z
+    .locals 2
+
+    invoke-super {p0, p1}, Landroid/app/Activity;->onCreateOptionsMenu(Landroid/view/Menu;)Z
+
+    invoke-virtual {p0}, Lb/b/k/c;->getMenuInflater()Landroid/view/MenuInflater;
+
+    move-result-object v0
+
+    const v1, 0x7f0f0001
+
+    invoke-virtual {v0, v1, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
+
+    const v0, 0x7f0b058c
+
+    invoke-static {p0, p1, v0}, Ld/j/b/e/e/u/a;->a(Landroid/content/Context;Landroid/view/Menu;I)Landroid/view/MenuItem;
+
+    const/4 p1, 0x1
+
+    return p1
+.end method

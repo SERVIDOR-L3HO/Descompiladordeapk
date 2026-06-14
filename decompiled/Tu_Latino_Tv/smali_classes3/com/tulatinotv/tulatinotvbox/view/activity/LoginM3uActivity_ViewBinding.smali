@@ -1,0 +1,347 @@
+.class public Lcom/tulatinotv/tulatinotvbox/view/activity/LoginM3uActivity_ViewBinding;
+.super Ljava/lang/Object;
+.source ""
+
+# interfaces
+.implements Lbutterknife/Unbinder;
+
+
+# instance fields
+.field public b:Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;
+
+.field public c:Landroid/view/View;
+
+.field public d:Landroid/view/View;
+
+
+# direct methods
+.method public constructor <init>(Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;Landroid/view/View;)V
+    .locals 4
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/LoginM3uActivity_ViewBinding;->b:Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;
+
+    const-class v0, Landroid/widget/EditText;
+
+    const v1, 0x7f0b0266
+
+    const-string v2, "field \'etName\'"
+
+    invoke-static {p2, v1, v2, v0}, Lc/c/c;->c(Landroid/view/View;ILjava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/EditText;
+
+    iput-object v0, p1, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->etName:Landroid/widget/EditText;
+
+    const-class v0, Landroid/widget/EditText;
+
+    const v1, 0x7f0b0262
+
+    const-string v2, "field \'etM3uLine\'"
+
+    invoke-static {p2, v1, v2, v0}, Lc/c/c;->c(Landroid/view/View;ILjava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/EditText;
+
+    iput-object v0, p1, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->etM3uLine:Landroid/widget/EditText;
+
+    const-class v0, Landroid/widget/EditText;
+
+    const v1, 0x7f0b0263
+
+    const-string v2, "field \'etM3uLineFile\'"
+
+    invoke-static {p2, v1, v2, v0}, Lc/c/c;->c(Landroid/view/View;ILjava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/EditText;
+
+    iput-object v0, p1, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->etM3uLineFile:Landroid/widget/EditText;
+
+    const v0, 0x7f0b06cf
+
+    const-string v1, "field \'rl_add_user\' and method \'onViewClicked\'"
+
+    invoke-static {p2, v0, v1}, Lc/c/c;->b(Landroid/view/View;ILjava/lang/String;)Landroid/view/View;
+
+    move-result-object v1
+
+    const-class v2, Landroid/widget/RelativeLayout;
+
+    const-string v3, "field \'rl_add_user\'"
+
+    invoke-static {v1, v0, v3, v2}, Lc/c/c;->a(Landroid/view/View;ILjava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/RelativeLayout;
+
+    iput-object v0, p1, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->rl_add_user:Landroid/widget/RelativeLayout;
+
+    iput-object v1, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/LoginM3uActivity_ViewBinding;->c:Landroid/view/View;
+
+    new-instance v0, Lcom/tulatinotv/tulatinotvbox/view/activity/LoginM3uActivity_ViewBinding$a;
+
+    invoke-direct {v0, p0, p1}, Lcom/tulatinotv/tulatinotvbox/view/activity/LoginM3uActivity_ViewBinding$a;-><init>(Lcom/tulatinotv/tulatinotvbox/view/activity/LoginM3uActivity_ViewBinding;Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;)V
+
+    invoke-virtual {v1, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    const-class v0, Landroid/widget/ImageView;
+
+    const v1, 0x7f0b0371
+
+    const-string v2, "field \'iv_add_user\'"
+
+    invoke-static {p2, v1, v2, v0}, Lc/c/c;->c(Landroid/view/View;ILjava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/ImageView;
+
+    iput-object v0, p1, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->iv_add_user:Landroid/widget/ImageView;
+
+    const-class v0, Landroid/widget/TextView;
+
+    const v1, 0x7f0b0882
+
+    const-string v2, "field \'tv_add_user\'"
+
+    invoke-static {p2, v1, v2, v0}, Lc/c/c;->c(Landroid/view/View;ILjava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    iput-object v0, p1, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->tv_add_user:Landroid/widget/TextView;
+
+    const-class v0, Landroid/widget/RelativeLayout;
+
+    const v1, 0x7f0b070f
+
+    const-string v2, "field \'rl_list_users\'"
+
+    invoke-static {p2, v1, v2, v0}, Lc/c/c;->c(Landroid/view/View;ILjava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/RelativeLayout;
+
+    iput-object v0, p1, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->rl_list_users:Landroid/widget/RelativeLayout;
+
+    const-class v0, Landroid/widget/ImageView;
+
+    const v1, 0x7f0b03ac
+
+    const-string v2, "field \'iv_list_users\'"
+
+    invoke-static {p2, v1, v2, v0}, Lc/c/c;->c(Landroid/view/View;ILjava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/ImageView;
+
+    iput-object v0, p1, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->iv_list_users:Landroid/widget/ImageView;
+
+    const-class v0, Landroid/widget/TextView;
+
+    const v1, 0x7f0b0911
+
+    const-string v2, "field \'tv_list_users\'"
+
+    invoke-static {p2, v1, v2, v0}, Lc/c/c;->c(Landroid/view/View;ILjava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    iput-object v0, p1, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->tv_list_users:Landroid/widget/TextView;
+
+    const v0, 0x7f0b011a
+
+    const-string v1, "field \'bt_browse\' and method \'onViewClicked\'"
+
+    invoke-static {p2, v0, v1}, Lc/c/c;->b(Landroid/view/View;ILjava/lang/String;)Landroid/view/View;
+
+    move-result-object v1
+
+    const-class v2, Landroid/widget/Button;
+
+    const-string v3, "field \'bt_browse\'"
+
+    invoke-static {v1, v0, v3, v2}, Lc/c/c;->a(Landroid/view/View;ILjava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/Button;
+
+    iput-object v0, p1, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->bt_browse:Landroid/widget/Button;
+
+    iput-object v1, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/LoginM3uActivity_ViewBinding;->d:Landroid/view/View;
+
+    new-instance v0, Lcom/tulatinotv/tulatinotvbox/view/activity/LoginM3uActivity_ViewBinding$b;
+
+    invoke-direct {v0, p0, p1}, Lcom/tulatinotv/tulatinotvbox/view/activity/LoginM3uActivity_ViewBinding$b;-><init>(Lcom/tulatinotv/tulatinotvbox/view/activity/LoginM3uActivity_ViewBinding;Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;)V
+
+    invoke-virtual {v1, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    const-class v0, Landroid/widget/RadioButton;
+
+    const v1, 0x7f0b06a0
+
+    const-string v2, "field \'rbFile\'"
+
+    invoke-static {p2, v1, v2, v0}, Lc/c/c;->c(Landroid/view/View;ILjava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/RadioButton;
+
+    iput-object v0, p1, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->rbFile:Landroid/widget/RadioButton;
+
+    const-class v0, Landroid/widget/RadioButton;
+
+    const v1, 0x7f0b06a3
+
+    const-string v2, "field \'rbM3U\'"
+
+    invoke-static {p2, v1, v2, v0}, Lc/c/c;->c(Landroid/view/View;ILjava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/RadioButton;
+
+    iput-object v0, p1, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->rbM3U:Landroid/widget/RadioButton;
+
+    const-class v0, Landroid/widget/TextView;
+
+    const v1, 0x7f0b0891
+
+    const-string v2, "field \'tv_browse_error\'"
+
+    invoke-static {p2, v1, v2, v0}, Lc/c/c;->c(Landroid/view/View;ILjava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    iput-object v0, p1, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->tv_browse_error:Landroid/widget/TextView;
+
+    const-class v0, Landroid/widget/TextView;
+
+    const v1, 0x7f0b08ea
+
+    const-string v2, "field \'tv_file_path\'"
+
+    invoke-static {p2, v1, v2, v0}, Lc/c/c;->c(Landroid/view/View;ILjava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    iput-object v0, p1, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->tv_file_path:Landroid/widget/TextView;
+
+    const-class v0, Landroid/widget/Button;
+
+    const v1, 0x7f0b09e1
+
+    const-string v2, "field \'vpn_button\'"
+
+    invoke-static {p2, v1, v2, v0}, Lc/c/c;->c(Landroid/view/View;ILjava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/Button;
+
+    iput-object v0, p1, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->vpn_button:Landroid/widget/Button;
+
+    const-class v0, Landroid/widget/RelativeLayout;
+
+    const v1, 0x7f0b0732
+
+    const-string v2, "field \'rl_playlist_name\'"
+
+    invoke-static {p2, v1, v2, v0}, Lc/c/c;->c(Landroid/view/View;ILjava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p2
+
+    check-cast p2, Landroid/widget/RelativeLayout;
+
+    iput-object p2, p1, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->rl_playlist_name:Landroid/widget/RelativeLayout;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public a()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/LoginM3uActivity_ViewBinding;->b:Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;
+
+    if-eqz v0, :cond_0
+
+    const/4 v1, 0x0
+
+    iput-object v1, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/LoginM3uActivity_ViewBinding;->b:Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;
+
+    iput-object v1, v0, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->etName:Landroid/widget/EditText;
+
+    iput-object v1, v0, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->etM3uLine:Landroid/widget/EditText;
+
+    iput-object v1, v0, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->etM3uLineFile:Landroid/widget/EditText;
+
+    iput-object v1, v0, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->rl_add_user:Landroid/widget/RelativeLayout;
+
+    iput-object v1, v0, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->iv_add_user:Landroid/widget/ImageView;
+
+    iput-object v1, v0, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->tv_add_user:Landroid/widget/TextView;
+
+    iput-object v1, v0, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->rl_list_users:Landroid/widget/RelativeLayout;
+
+    iput-object v1, v0, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->iv_list_users:Landroid/widget/ImageView;
+
+    iput-object v1, v0, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->tv_list_users:Landroid/widget/TextView;
+
+    iput-object v1, v0, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->bt_browse:Landroid/widget/Button;
+
+    iput-object v1, v0, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->rbFile:Landroid/widget/RadioButton;
+
+    iput-object v1, v0, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->rbM3U:Landroid/widget/RadioButton;
+
+    iput-object v1, v0, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->tv_browse_error:Landroid/widget/TextView;
+
+    iput-object v1, v0, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->tv_file_path:Landroid/widget/TextView;
+
+    iput-object v1, v0, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->vpn_button:Landroid/widget/Button;
+
+    iput-object v1, v0, Lcom/tulatinotv/tulatinotvbox/view/activity/NewDashboardActivity;->rl_playlist_name:Landroid/widget/RelativeLayout;
+
+    iget-object v0, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/LoginM3uActivity_ViewBinding;->c:Landroid/view/View;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iput-object v1, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/LoginM3uActivity_ViewBinding;->c:Landroid/view/View;
+
+    iget-object v0, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/LoginM3uActivity_ViewBinding;->d:Landroid/view/View;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iput-object v1, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/LoginM3uActivity_ViewBinding;->d:Landroid/view/View;
+
+    return-void
+
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    const-string v1, "Bindings already cleared."
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method

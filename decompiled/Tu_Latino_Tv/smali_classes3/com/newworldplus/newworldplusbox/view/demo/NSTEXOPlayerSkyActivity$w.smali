@@ -1,0 +1,255 @@
+.class public Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity$w;
+.super Ljava/lang/Object;
+.source ""
+
+# interfaces
+.implements Landroid/widget/SeekBar$OnSeekBarChangeListener;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+
+# instance fields
+.field public final synthetic a:Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;
+
+
+# direct methods
+.method public constructor <init>(Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity$w;->a:Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onProgressChanged(Landroid/widget/SeekBar;IZ)V
+    .locals 1
+
+    iget-object p1, p0, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity$w;->a:Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;
+
+    int-to-float p2, p2
+
+    invoke-static {p1, p2}, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;->d4(Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;F)F
+
+    iget-object p1, p0, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity$w;->a:Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;
+
+    invoke-static {p1}, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;->c4(Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;)F
+
+    move-result p1
+
+    const/high16 p2, 0x437f0000    # 255.0f
+
+    div-float/2addr p1, p2
+
+    const/high16 p3, 0x42c80000    # 100.0f
+
+    mul-float p1, p1, p3
+
+    float-to-int p1, p1
+
+    const/16 p3, 0x14
+
+    if-ge p1, p3, :cond_0
+
+    iget-object p1, p0, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity$w;->a:Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;
+
+    iget-object p3, p1, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;->tv_brightness:Landroid/widget/TextView;
+
+    invoke-virtual {p1}, Lb/b/k/c;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    const v0, 0x7f0801e8
+
+    :goto_0
+    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object p1
+
+    invoke-virtual {p3, p1}, Landroid/widget/TextView;->setBackground(Landroid/graphics/drawable/Drawable;)V
+
+    goto :goto_1
+
+    :cond_0
+    const/16 p3, 0x1e
+
+    if-ge p1, p3, :cond_1
+
+    iget-object p1, p0, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity$w;->a:Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;
+
+    iget-object p3, p1, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;->tv_brightness:Landroid/widget/TextView;
+
+    invoke-virtual {p1}, Lb/b/k/c;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    const v0, 0x7f0801e9
+
+    goto :goto_0
+
+    :cond_1
+    const/16 p3, 0x28
+
+    if-ge p1, p3, :cond_2
+
+    iget-object p1, p0, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity$w;->a:Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;
+
+    iget-object p3, p1, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;->tv_brightness:Landroid/widget/TextView;
+
+    invoke-virtual {p1}, Lb/b/k/c;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    const v0, 0x7f0801ea
+
+    goto :goto_0
+
+    :cond_2
+    const/16 p3, 0x32
+
+    if-ge p1, p3, :cond_3
+
+    iget-object p1, p0, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity$w;->a:Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;
+
+    iget-object p3, p1, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;->tv_brightness:Landroid/widget/TextView;
+
+    invoke-virtual {p1}, Lb/b/k/c;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    const v0, 0x7f0801eb
+
+    goto :goto_0
+
+    :cond_3
+    const/16 p3, 0x3c
+
+    if-ge p1, p3, :cond_4
+
+    iget-object p1, p0, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity$w;->a:Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;
+
+    iget-object p3, p1, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;->tv_brightness:Landroid/widget/TextView;
+
+    invoke-virtual {p1}, Lb/b/k/c;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    const v0, 0x7f0801ec
+
+    goto :goto_0
+
+    :cond_4
+    const/16 p3, 0x46
+
+    if-ge p1, p3, :cond_5
+
+    iget-object p1, p0, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity$w;->a:Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;
+
+    iget-object p3, p1, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;->tv_brightness:Landroid/widget/TextView;
+
+    invoke-virtual {p1}, Lb/b/k/c;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    const v0, 0x7f0801ed
+
+    goto :goto_0
+
+    :cond_5
+    iget-object p1, p0, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity$w;->a:Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;
+
+    iget-object p3, p1, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;->tv_brightness:Landroid/widget/TextView;
+
+    invoke-virtual {p1}, Lb/b/k/c;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    const v0, 0x7f0801ee
+
+    goto :goto_0
+
+    :goto_1
+    iget-object p1, p0, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity$w;->a:Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;
+
+    invoke-virtual {p1}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object p1
+
+    iget-object p3, p0, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity$w;->a:Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;
+
+    invoke-static {p3}, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;->c4(Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;)F
+
+    move-result p3
+
+    div-float/2addr p3, p2
+
+    iput p3, p1, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
+
+    iget-object p2, p0, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity$w;->a:Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;
+
+    invoke-static {p2}, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;->e4(Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;)Ld/l/a/m/e/b/a;
+
+    move-result-object p2
+
+    iget-object p3, p0, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity$w;->a:Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;
+
+    invoke-static {p3}, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;->c4(Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;)F
+
+    move-result p3
+
+    float-to-int p3, p3
+
+    invoke-virtual {p2, p3}, Ld/l/a/m/e/b/a;->K(I)V
+
+    iget-object p2, p0, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity$w;->a:Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;
+
+    invoke-virtual {p2}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+
+    move-result-object p2
+
+    invoke-virtual {p2, p1}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
+
+    return-void
+.end method
+
+.method public onStartTrackingTouch(Landroid/widget/SeekBar;)V
+    .locals 0
+
+    iget-object p1, p0, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity$w;->a:Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;
+
+    invoke-virtual {p1}, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;->X5()V
+
+    return-void
+.end method
+
+.method public onStopTrackingTouch(Landroid/widget/SeekBar;)V
+    .locals 1
+
+    iget-object p1, p0, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity$w;->a:Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;
+
+    invoke-virtual {p1}, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;->X5()V
+
+    iget-object p1, p0, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity$w;->a:Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;
+
+    const/16 v0, 0xbb8
+
+    invoke-virtual {p1, v0}, Lcom/newworldplus/newworldplusbox/view/demo/NSTEXOPlayerSkyActivity;->z4(I)V
+
+    return-void
+.end method

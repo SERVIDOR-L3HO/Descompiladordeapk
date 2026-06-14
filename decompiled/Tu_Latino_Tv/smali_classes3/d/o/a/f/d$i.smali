@@ -1,0 +1,79 @@
+.class public Ld/o/a/f/d$i;
+.super Ljava/lang/Object;
+.source ""
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Ld/o/a/f/d;->sendVideoDuration(Ljava/lang/String;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+
+# instance fields
+.field public final synthetic a:F
+
+.field public final synthetic c:Ld/o/a/f/d;
+
+
+# direct methods
+.method public constructor <init>(Ld/o/a/f/d;F)V
+    .locals 0
+
+    iput-object p1, p0, Ld/o/a/f/d$i;->c:Ld/o/a/f/d;
+
+    iput p2, p0, Ld/o/a/f/d$i;->a:F
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public run()V
+    .locals 3
+
+    iget-object v0, p0, Ld/o/a/f/d$i;->c:Ld/o/a/f/d;
+
+    invoke-static {v0}, Ld/o/a/f/d;->a(Ld/o/a/f/d;)Ld/o/a/f/d$k;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ld/o/a/f/d$k;->b()Ljava/util/Collection;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ld/o/a/f/g;
+
+    iget v2, p0, Ld/o/a/f/d$i;->a:F
+
+    invoke-interface {v1, v2}, Ld/o/a/f/g;->e(F)V
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method

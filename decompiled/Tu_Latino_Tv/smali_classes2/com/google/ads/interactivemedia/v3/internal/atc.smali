@@ -1,0 +1,163 @@
+.class public final Lcom/google/ads/interactivemedia/v3/internal/atc;
+.super Lcom/google/ads/interactivemedia/v3/internal/apq;
+.source ""
+
+# interfaces
+.implements Lcom/google/ads/interactivemedia/v3/internal/atd;
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 1
+
+    const-string v0, "com.google.android.gms.gass.internal.clearcut.IGassClearcut"
+
+    invoke-direct {p0, v0}, Lcom/google/ads/interactivemedia/v3/internal/apq;-><init>(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public constructor <init>([B)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/ads/interactivemedia/v3/internal/atc;-><init>()V
+
+    return-void
+.end method
+
+.method public static b(Landroid/os/IBinder;)Lcom/google/ads/interactivemedia/v3/internal/atd;
+    .locals 2
+
+    if-nez p0, :cond_0
+
+    const/4 p0, 0x0
+
+    return-object p0
+
+    :cond_0
+    const-string v0, "com.google.android.gms.gass.internal.clearcut.IGassClearcut"
+
+    invoke-interface {p0, v0}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
+
+    move-result-object v0
+
+    instance-of v1, v0, Lcom/google/ads/interactivemedia/v3/internal/atd;
+
+    if-eqz v1, :cond_1
+
+    check-cast v0, Lcom/google/ads/interactivemedia/v3/internal/atd;
+
+    return-object v0
+
+    :cond_1
+    new-instance v0, Lcom/google/ads/interactivemedia/v3/internal/atb;
+
+    invoke-direct {v0, p0}, Lcom/google/ads/interactivemedia/v3/internal/atb;-><init>(Landroid/os/IBinder;)V
+
+    return-object v0
+.end method
+
+
+# virtual methods
+.method public final a(ILandroid/os/Parcel;Landroid/os/Parcel;)Z
+    .locals 0
+
+    packed-switch p1, :pswitch_data_0
+
+    const/4 p1, 0x0
+
+    return p1
+
+    :pswitch_0
+    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object p1
+
+    invoke-static {p1}, Lcom/google/ads/interactivemedia/v3/internal/arn;->b(Landroid/os/IBinder;)Lcom/google/ads/interactivemedia/v3/internal/aro;
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    goto :goto_0
+
+    :pswitch_1
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    goto :goto_1
+
+    :pswitch_2
+    invoke-virtual {p2}, Landroid/os/Parcel;->createByteArray()[B
+
+    goto :goto_1
+
+    :pswitch_3
+    invoke-virtual {p2}, Landroid/os/Parcel;->createIntArray()[I
+
+    goto :goto_1
+
+    :pswitch_4
+    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object p1
+
+    invoke-static {p1}, Lcom/google/ads/interactivemedia/v3/internal/arn;->b(Landroid/os/IBinder;)Lcom/google/ads/interactivemedia/v3/internal/aro;
+
+    :goto_0
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    :goto_1
+    invoke-static {p2}, Lcom/google/ads/interactivemedia/v3/internal/apr;->b(Landroid/os/Parcel;)V
+
+    :pswitch_5
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 p1, 0x1
+
+    return p1
+
+    :pswitch_data_0
+    .packed-switch 0x2
+        :pswitch_4
+        :pswitch_5
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
+.end method
+
+.method public final e()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public final f(I)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public final g(I)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public final h([B)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public final i(Lcom/google/ads/interactivemedia/v3/internal/aro;Ljava/lang/String;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public final j()V
+    .locals 0
+
+    return-void
+.end method

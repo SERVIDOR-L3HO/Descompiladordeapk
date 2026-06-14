@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient android:startColor="@color/client_report_parent_layout_bgcolor" android:endColor="@color/client_report_parent_layout_bgcolor" android:angle="180.0" />
+    <corners android:radius="5.0dip" />
+    <corners android:radius="5.0dip" />
+</shape>

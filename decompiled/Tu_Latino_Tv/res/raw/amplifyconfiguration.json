@@ -1,0 +1,17 @@
+{
+    "UserAgent": "aws-amplify-cli/2.0",
+    "Version": "1.0",
+    "api": {
+        "plugins": {
+            "awsAPIPlugin": {
+                "iptvsmartersproandro": {
+                    "endpointType": "GraphQL",
+                    "endpoint": "https://irqtu3khgfbdvdap4n3frhakny.appsync-api.us-east-1.amazonaws.com/graphql",
+                    "region": "us-east-1",
+                    "authorizationType": "API_KEY",
+                    "apiKey": "da2-gftmujywffhaxi742jx74v4qpy"
+                }
+            }
+        }
+    }
+}

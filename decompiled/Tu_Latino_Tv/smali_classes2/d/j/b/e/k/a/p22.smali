@@ -1,0 +1,26 @@
+.class public interface abstract Ld/j/b/e/k/a/p22;
+.super Ljava/lang/Object;
+.source ""
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<V:",
+        "Ljava/lang/Object;",
+        ">",
+        "Ljava/lang/Object;"
+    }
+.end annotation
+
+
+# virtual methods
+.method public abstract zza()Ld/j/b/e/k/a/s32;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ld/j/b/e/k/a/s32<",
+            "TV;>;"
+        }
+    .end annotation
+.end method

@@ -1,0 +1,391 @@
+.class public final Ld/j/b/c/z4/p0/f;
+.super Ljava/lang/Object;
+.source ""
+
+
+# annotations
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
+
+# instance fields
+.field public a:I
+
+.field public b:I
+
+.field public c:J
+
+.field public d:J
+
+.field public e:J
+
+.field public f:J
+
+.field public g:I
+
+.field public h:I
+
+.field public i:I
+
+.field public final j:[I
+
+.field public final k:Ld/j/b/c/j5/m0;
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 2
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/16 v0, 0xff
+
+    new-array v1, v0, [I
+
+    iput-object v1, p0, Ld/j/b/c/z4/p0/f;->j:[I
+
+    new-instance v1, Ld/j/b/c/j5/m0;
+
+    invoke-direct {v1, v0}, Ld/j/b/c/j5/m0;-><init>(I)V
+
+    iput-object v1, p0, Ld/j/b/c/z4/p0/f;->k:Ld/j/b/c/j5/m0;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public a(Ld/j/b/c/z4/n;Z)Z
+    .locals 6
+
+    invoke-virtual {p0}, Ld/j/b/c/z4/p0/f;->b()V
+
+    iget-object v0, p0, Ld/j/b/c/z4/p0/f;->k:Ld/j/b/c/j5/m0;
+
+    const/16 v1, 0x1b
+
+    invoke-virtual {v0, v1}, Ld/j/b/c/j5/m0;->Q(I)V
+
+    iget-object v0, p0, Ld/j/b/c/z4/p0/f;->k:Ld/j/b/c/j5/m0;
+
+    invoke-virtual {v0}, Ld/j/b/c/j5/m0;->e()[B
+
+    move-result-object v0
+
+    const/4 v2, 0x0
+
+    invoke-static {p1, v0, v2, v1, p2}, Ld/j/b/c/z4/p;->b(Ld/j/b/c/z4/n;[BIIZ)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    iget-object v0, p0, Ld/j/b/c/z4/p0/f;->k:Ld/j/b/c/j5/m0;
+
+    invoke-virtual {v0}, Ld/j/b/c/j5/m0;->J()J
+
+    move-result-wide v0
+
+    const-wide/32 v3, 0x4f676753
+
+    cmp-long v5, v0, v3
+
+    if-eqz v5, :cond_0
+
+    goto/16 :goto_1
+
+    :cond_0
+    iget-object v0, p0, Ld/j/b/c/z4/p0/f;->k:Ld/j/b/c/j5/m0;
+
+    invoke-virtual {v0}, Ld/j/b/c/j5/m0;->H()I
+
+    move-result v0
+
+    iput v0, p0, Ld/j/b/c/z4/p0/f;->a:I
+
+    if-eqz v0, :cond_2
+
+    if-eqz p2, :cond_1
+
+    return v2
+
+    :cond_1
+    const-string p1, "unsupported bit stream revision"
+
+    invoke-static {p1}, Ld/j/b/c/s3;->e(Ljava/lang/String;)Ld/j/b/c/s3;
+
+    move-result-object p1
+
+    throw p1
+
+    :cond_2
+    iget-object v0, p0, Ld/j/b/c/z4/p0/f;->k:Ld/j/b/c/j5/m0;
+
+    invoke-virtual {v0}, Ld/j/b/c/j5/m0;->H()I
+
+    move-result v0
+
+    iput v0, p0, Ld/j/b/c/z4/p0/f;->b:I
+
+    iget-object v0, p0, Ld/j/b/c/z4/p0/f;->k:Ld/j/b/c/j5/m0;
+
+    invoke-virtual {v0}, Ld/j/b/c/j5/m0;->v()J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Ld/j/b/c/z4/p0/f;->c:J
+
+    iget-object v0, p0, Ld/j/b/c/z4/p0/f;->k:Ld/j/b/c/j5/m0;
+
+    invoke-virtual {v0}, Ld/j/b/c/j5/m0;->x()J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Ld/j/b/c/z4/p0/f;->d:J
+
+    iget-object v0, p0, Ld/j/b/c/z4/p0/f;->k:Ld/j/b/c/j5/m0;
+
+    invoke-virtual {v0}, Ld/j/b/c/j5/m0;->x()J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Ld/j/b/c/z4/p0/f;->e:J
+
+    iget-object v0, p0, Ld/j/b/c/z4/p0/f;->k:Ld/j/b/c/j5/m0;
+
+    invoke-virtual {v0}, Ld/j/b/c/j5/m0;->x()J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Ld/j/b/c/z4/p0/f;->f:J
+
+    iget-object v0, p0, Ld/j/b/c/z4/p0/f;->k:Ld/j/b/c/j5/m0;
+
+    invoke-virtual {v0}, Ld/j/b/c/j5/m0;->H()I
+
+    move-result v0
+
+    iput v0, p0, Ld/j/b/c/z4/p0/f;->g:I
+
+    add-int/lit8 v1, v0, 0x1b
+
+    iput v1, p0, Ld/j/b/c/z4/p0/f;->h:I
+
+    iget-object v1, p0, Ld/j/b/c/z4/p0/f;->k:Ld/j/b/c/j5/m0;
+
+    invoke-virtual {v1, v0}, Ld/j/b/c/j5/m0;->Q(I)V
+
+    iget-object v0, p0, Ld/j/b/c/z4/p0/f;->k:Ld/j/b/c/j5/m0;
+
+    invoke-virtual {v0}, Ld/j/b/c/j5/m0;->e()[B
+
+    move-result-object v0
+
+    iget v1, p0, Ld/j/b/c/z4/p0/f;->g:I
+
+    invoke-static {p1, v0, v2, v1, p2}, Ld/j/b/c/z4/p;->b(Ld/j/b/c/z4/n;[BIIZ)Z
+
+    move-result p1
+
+    if-nez p1, :cond_3
+
+    return v2
+
+    :cond_3
+    :goto_0
+    iget p1, p0, Ld/j/b/c/z4/p0/f;->g:I
+
+    if-ge v2, p1, :cond_4
+
+    iget-object p1, p0, Ld/j/b/c/z4/p0/f;->j:[I
+
+    iget-object p2, p0, Ld/j/b/c/z4/p0/f;->k:Ld/j/b/c/j5/m0;
+
+    invoke-virtual {p2}, Ld/j/b/c/j5/m0;->H()I
+
+    move-result p2
+
+    aput p2, p1, v2
+
+    iget p1, p0, Ld/j/b/c/z4/p0/f;->i:I
+
+    iget-object p2, p0, Ld/j/b/c/z4/p0/f;->j:[I
+
+    aget p2, p2, v2
+
+    add-int/2addr p1, p2
+
+    iput p1, p0, Ld/j/b/c/z4/p0/f;->i:I
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_4
+    const/4 p1, 0x1
+
+    return p1
+
+    :cond_5
+    :goto_1
+    return v2
+.end method
+
+.method public b()V
+    .locals 3
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Ld/j/b/c/z4/p0/f;->a:I
+
+    iput v0, p0, Ld/j/b/c/z4/p0/f;->b:I
+
+    const-wide/16 v1, 0x0
+
+    iput-wide v1, p0, Ld/j/b/c/z4/p0/f;->c:J
+
+    iput-wide v1, p0, Ld/j/b/c/z4/p0/f;->d:J
+
+    iput-wide v1, p0, Ld/j/b/c/z4/p0/f;->e:J
+
+    iput-wide v1, p0, Ld/j/b/c/z4/p0/f;->f:J
+
+    iput v0, p0, Ld/j/b/c/z4/p0/f;->g:I
+
+    iput v0, p0, Ld/j/b/c/z4/p0/f;->h:I
+
+    iput v0, p0, Ld/j/b/c/z4/p0/f;->i:I
+
+    return-void
+.end method
+
+.method public c(Ld/j/b/c/z4/n;)Z
+    .locals 2
+
+    const-wide/16 v0, -0x1
+
+    invoke-virtual {p0, p1, v0, v1}, Ld/j/b/c/z4/p0/f;->d(Ld/j/b/c/z4/n;J)Z
+
+    move-result p1
+
+    return p1
+.end method
+
+.method public d(Ld/j/b/c/z4/n;J)Z
+    .locals 8
+
+    invoke-interface {p1}, Ld/j/b/c/z4/n;->getPosition()J
+
+    move-result-wide v0
+
+    invoke-interface {p1}, Ld/j/b/c/z4/n;->j()J
+
+    move-result-wide v2
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x1
+
+    cmp-long v6, v0, v2
+
+    if-nez v6, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-static {v0}, Ld/j/b/c/j5/f;->a(Z)V
+
+    iget-object v0, p0, Ld/j/b/c/z4/p0/f;->k:Ld/j/b/c/j5/m0;
+
+    const/4 v1, 0x4
+
+    invoke-virtual {v0, v1}, Ld/j/b/c/j5/m0;->Q(I)V
+
+    :goto_1
+    const-wide/16 v2, -0x1
+
+    cmp-long v0, p2, v2
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {p1}, Ld/j/b/c/z4/n;->getPosition()J
+
+    move-result-wide v2
+
+    const-wide/16 v6, 0x4
+
+    add-long/2addr v2, v6
+
+    cmp-long v6, v2, p2
+
+    if-gez v6, :cond_3
+
+    :cond_1
+    iget-object v2, p0, Ld/j/b/c/z4/p0/f;->k:Ld/j/b/c/j5/m0;
+
+    invoke-virtual {v2}, Ld/j/b/c/j5/m0;->e()[B
+
+    move-result-object v2
+
+    invoke-static {p1, v2, v4, v1, v5}, Ld/j/b/c/z4/p;->b(Ld/j/b/c/z4/n;[BIIZ)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    iget-object v0, p0, Ld/j/b/c/z4/p0/f;->k:Ld/j/b/c/j5/m0;
+
+    invoke-virtual {v0, v4}, Ld/j/b/c/j5/m0;->U(I)V
+
+    iget-object v0, p0, Ld/j/b/c/z4/p0/f;->k:Ld/j/b/c/j5/m0;
+
+    invoke-virtual {v0}, Ld/j/b/c/j5/m0;->J()J
+
+    move-result-wide v2
+
+    const-wide/32 v6, 0x4f676753
+
+    cmp-long v0, v2, v6
+
+    if-nez v0, :cond_2
+
+    invoke-interface {p1}, Ld/j/b/c/z4/n;->f()V
+
+    return v5
+
+    :cond_2
+    invoke-interface {p1, v5}, Ld/j/b/c/z4/n;->q(I)V
+
+    goto :goto_1
+
+    :cond_3
+    :goto_2
+    if-eqz v0, :cond_4
+
+    invoke-interface {p1}, Ld/j/b/c/z4/n;->getPosition()J
+
+    move-result-wide v1
+
+    cmp-long v3, v1, p2
+
+    if-gez v3, :cond_5
+
+    :cond_4
+    invoke-interface {p1, v5}, Ld/j/b/c/z4/n;->n(I)I
+
+    move-result v1
+
+    const/4 v2, -0x1
+
+    if-eq v1, v2, :cond_5
+
+    goto :goto_2
+
+    :cond_5
+    return v4
+.end method

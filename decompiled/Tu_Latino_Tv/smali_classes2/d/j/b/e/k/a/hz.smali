@@ -1,0 +1,45 @@
+.class public final Ld/j/b/e/k/a/hz;
+.super Ljava/lang/Object;
+.source ""
+
+# interfaces
+.implements Ld/j/b/e/k/a/ym2;
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Ld/j/b/e/k/a/ym2<",
+        "Ld/j/b/e/k/a/pm;",
+        ">;"
+    }
+.end annotation
+
+
+# instance fields
+.field public final a:Ld/j/b/e/k/a/dz;
+
+
+# direct methods
+.method public constructor <init>(Ld/j/b/e/k/a/dz;)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Ld/j/b/e/k/a/hz;->a:Ld/j/b/e/k/a/dz;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final bridge synthetic u()Ljava/lang/Object;
+    .locals 1
+
+    new-instance v0, Ld/j/b/e/k/a/pm;
+
+    invoke-direct {v0}, Ld/j/b/e/k/a/pm;-><init>()V
+
+    return-object v0
+.end method

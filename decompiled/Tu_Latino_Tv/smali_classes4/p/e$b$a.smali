@@ -1,0 +1,61 @@
+.class public Lp/e$b$a;
+.super Ljava/util/concurrent/CompletableFuture;
+.source ""
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lp/e$b;->c(Lp/b;)Ljava/util/concurrent/CompletableFuture;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/util/concurrent/CompletableFuture<",
+        "Lp/r<",
+        "TR;>;>;"
+    }
+.end annotation
+
+
+# instance fields
+.field public final synthetic a:Lp/b;
+
+.field public final synthetic c:Lp/e$b;
+
+
+# direct methods
+.method public constructor <init>(Lp/e$b;Lp/b;)V
+    .locals 0
+
+    iput-object p1, p0, Lp/e$b$a;->c:Lp/e$b;
+
+    iput-object p2, p0, Lp/e$b$a;->a:Lp/b;
+
+    invoke-direct {p0}, Ljava/util/concurrent/CompletableFuture;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public cancel(Z)Z
+    .locals 1
+
+    if-eqz p1, :cond_0
+
+    iget-object v0, p0, Lp/e$b$a;->a:Lp/b;
+
+    invoke-interface {v0}, Lp/b;->cancel()V
+
+    :cond_0
+    invoke-super {p0, p1}, Ljava/util/concurrent/CompletableFuture;->cancel(Z)Z
+
+    move-result p1
+
+    return p1
+.end method

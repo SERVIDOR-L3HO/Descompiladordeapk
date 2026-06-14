@@ -1,0 +1,3 @@
+.class public final synthetic Ld/j/b/e/k/a/bw1;
+.super Ljava/lang/Object;
+.source ""

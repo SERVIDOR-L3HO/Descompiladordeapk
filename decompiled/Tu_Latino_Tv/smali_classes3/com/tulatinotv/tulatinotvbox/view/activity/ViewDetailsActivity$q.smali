@@ -1,0 +1,311 @@
+.class public Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity$q;
+.super Ljava/lang/Object;
+.source ""
+
+# interfaces
+.implements Landroid/widget/PopupMenu$OnMenuItemClickListener;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;->I3(Landroid/view/View;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+
+# instance fields
+.field public final synthetic a:Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;
+
+
+# direct methods
+.method public constructor <init>(Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity$q;->a:Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onMenuItemClick(Landroid/view/MenuItem;)Z
+    .locals 5
+
+    invoke-interface {p1}, Landroid/view/MenuItem;->getTitle()Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "Cancel Downloading"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    if-eqz v0, :cond_0
+
+    iget-object p1, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity$q;->a:Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;
+
+    invoke-virtual {p1, p1}, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;->F3(Landroid/app/Activity;)V
+
+    goto/16 :goto_2
+
+    :cond_0
+    invoke-interface {p1}, Landroid/view/MenuItem;->getTitle()Ljava/lang/CharSequence;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v0, "Pause Downloading"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_3
+
+    iget-object p1, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity$q;->a:Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;
+
+    invoke-static {p1}, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;->P2(Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;)Landroid/content/Context;
+
+    move-result-object p1
+
+    const-string v0, "Downloading Paused"
+
+    const/4 v2, 0x0
+
+    invoke-static {p1, v0, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
+
+    iget-object p1, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity$q;->a:Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;
+
+    invoke-static {p1}, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;->P2(Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;)Landroid/content/Context;
+
+    move-result-object p1
+
+    invoke-static {p1}, Lcom/tulatinotv/tulatinotvbox/model/database/SharepreferenceDBHandler;->f(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v0, "api"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    const/16 v0, 0x3e9
+
+    if-eqz p1, :cond_1
+
+    iget-object p1, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity$q;->a:Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;
+
+    invoke-static {p1}, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;->P2(Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;)Landroid/content/Context;
+
+    move-result-object p1
+
+    const-class v3, Lcom/tulatinotv/tulatinotvbox/view/services/VideoDownloadService;
+
+    iget-object v4, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity$q;->a:Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;
+
+    invoke-static {v4}, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;->n3(Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;)I
+
+    move-result v4
+
+    invoke-static {v4}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    goto :goto_0
+
+    :cond_1
+    iget-object p1, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity$q;->a:Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;
+
+    invoke-static {p1}, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;->P2(Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;)Landroid/content/Context;
+
+    move-result-object p1
+
+    const-class v3, Lcom/tulatinotv/tulatinotvbox/view/services/VideoDownloadService;
+
+    iget-object v4, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity$q;->a:Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;
+
+    invoke-static {v4}, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;->p3(Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v4
+
+    :goto_0
+    invoke-static {p1, v3, v4, v0, v1}, Ld/j/b/c/c5/a0;->z(Landroid/content/Context;Ljava/lang/Class;Ljava/lang/String;IZ)V
+
+    iget-object p1, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity$q;->a:Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;
+
+    iget-object v0, p1, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;->tv_download:Landroid/widget/TextView;
+
+    invoke-static {p1}, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;->P2(Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;)Landroid/content/Context;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    const v3, 0x7f140516
+
+    invoke-virtual {p1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    iget-object p1, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity$q;->a:Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;
+
+    invoke-static {p1}, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;->j3(Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;)Lcom/tulatinotv/tulatinotvbox/model/database/DownloadedDBHandler;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/tulatinotv/tulatinotvbox/model/database/DownloadedDBHandler;->l()Ljava/util/ArrayList;
+
+    move-result-object v0
+
+    iput-object v0, p1, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;->i:Ljava/util/ArrayList;
+
+    iget-object p1, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity$q;->a:Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;
+
+    iget-object p1, p1, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;->i:Ljava/util/ArrayList;
+
+    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
+
+    move-result p1
+
+    if-lez p1, :cond_4
+
+    :goto_1
+    iget-object p1, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity$q;->a:Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;
+
+    iget-object p1, p1, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;->i:Ljava/util/ArrayList;
+
+    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
+
+    move-result p1
+
+    if-ge v2, p1, :cond_4
+
+    iget-object p1, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity$q;->a:Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;
+
+    iget-object p1, p1, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;->i:Ljava/util/ArrayList;
+
+    invoke-virtual {p1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/tulatinotv/tulatinotvbox/model/DownloadedDataModel;
+
+    invoke-virtual {p1}, Lcom/tulatinotv/tulatinotvbox/model/DownloadedDataModel;->M()Ljava/lang/String;
+
+    move-result-object p1
+
+    iget-object v0, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity$q;->a:Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;
+
+    iget-object v0, v0, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;->j:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_2
+
+    iget-object p1, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity$q;->a:Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;
+
+    iget-object p1, p1, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;->i:Ljava/util/ArrayList;
+
+    invoke-virtual {p1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/tulatinotv/tulatinotvbox/model/DownloadedDataModel;
+
+    invoke-virtual {p1}, Lcom/tulatinotv/tulatinotvbox/model/DownloadedDataModel;->d()I
+
+    move-result p1
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    new-instance v3, Lcom/tulatinotv/tulatinotvbox/model/DownloadedDataModel;
+
+    invoke-direct {v3}, Lcom/tulatinotv/tulatinotvbox/model/DownloadedDataModel;-><init>()V
+
+    const-string v4, "Paused"
+
+    invoke-virtual {v3, v4}, Lcom/tulatinotv/tulatinotvbox/model/DownloadedDataModel;->X(Ljava/lang/String;)V
+
+    iget-object v4, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity$q;->a:Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;
+
+    iget-object v4, v4, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;->i:Ljava/util/ArrayList;
+
+    invoke-virtual {v4, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/tulatinotv/tulatinotvbox/model/DownloadedDataModel;
+
+    invoke-virtual {v2}, Lcom/tulatinotv/tulatinotvbox/model/DownloadedDataModel;->H()I
+
+    move-result v2
+
+    invoke-virtual {v3, v2}, Lcom/tulatinotv/tulatinotvbox/model/DownloadedDataModel;->W(I)V
+
+    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    iget-object v2, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity$q;->a:Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;
+
+    invoke-static {v2}, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;->j3(Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;)Lcom/tulatinotv/tulatinotvbox/model/database/DownloadedDBHandler;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0, p1}, Lcom/tulatinotv/tulatinotvbox/model/database/DownloadedDBHandler;->p(Ljava/util/ArrayList;I)V
+
+    goto :goto_2
+
+    :cond_2
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_1
+
+    :cond_3
+    new-instance p1, Landroid/content/Intent;
+
+    iget-object v0, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity$q;->a:Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;
+
+    const-class v2, Lcom/tulatinotv/tulatinotvbox/view/activity/DownloadedMovies;
+
+    invoke-direct {p1, v0, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    iget-object v0, p0, Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity$q;->a:Lcom/tulatinotv/tulatinotvbox/view/activity/ViewDetailsActivity;
+
+    invoke-virtual {v0, p1}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
+
+    :cond_4
+    :goto_2
+    return v1
+.end method

@@ -1,0 +1,28 @@
+.class public final Ld/j/b/e/k/a/p53;
+.super Ljava/lang/Object;
+.source ""
+
+# interfaces
+.implements Ld/j/b/e/k/a/wh2;
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Ld/j/b/e/k/a/wh2<",
+        "Ljava/lang/Integer;",
+        "Ld/j/b/e/k/a/d43;",
+        ">;"
+    }
+.end annotation
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="right" android:orientation="vertical" android:background="#ff1d232d" android:layout_width="300.0dip" android:layout_height="800.0dip" android:layout_margin="@dimen/_2sdp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/ll_account_name_sidebar_singleuser" android:tag="1" android:background="@drawable/dashboard_sidebar_round_edges" android:focusable="true" android:layout_width="fill_parent" android:layout_height="@dimen/_35sdp" android:layout_marginTop="20.0dip" android:layout_marginBottom="10.0dip" android:layout_marginStart="15.0dip" android:layout_marginEnd="15.0dip">
+        <TextView android:textColor="@color/white" android:gravity="center_vertical" android:id="@id/tv_account_name" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="fill_parent" android:singleLine="true" android:layout_toLeftOf="@id/logout_user" android:layout_toRightOf="@id/switch_user_single" android:layout_marginStart="15.0dip" />
+        <ImageView android:id="@id/switch_user_single" android:tag="7" android:padding="5.0dip" android:visibility="visible" android:layout_width="50.0dip" android:layout_height="fill_parent" android:layout_marginRight="10.0dip" android:src="@drawable/user_avatar" android:layout_marginEnd="0.0dip" />
+        <ImageView android:id="@id/logout_user" android:tag="7" android:padding="5.0dip" android:visibility="visible" android:layout_width="40.0dip" android:layout_height="40.0dip" android:src="@drawable/logout_icon" android:layout_centerVertical="true" android:layout_marginEnd="10.0dip" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+    <LinearLayout android:id="@id/ll_account_name_sidebar" android:tag="1" android:background="@drawable/dashboard_sidebar_round_edges" android:focusable="true" android:layout_width="fill_parent" android:layout_height="@dimen/_35sdp" android:layout_marginTop="20.0dip" android:layout_marginBottom="10.0dip" android:layout_marginStart="15.0dip" android:layout_marginEnd="15.0dip">
+        <TextView android:textColor="@color/white" android:gravity="center_vertical" android:id="@id/tv_account_name_sidebar" android:visibility="visible" android:layout_width="200.0dip" android:layout_height="fill_parent" android:singleLine="true" android:layout_marginStart="15.0dip" />
+        <ImageView android:id="@id/switch_user" android:tag="7" android:padding="5.0dip" android:visibility="visible" android:layout_width="50.0dip" android:layout_height="fill_parent" android:layout_marginRight="10.0dip" android:src="@drawable/user_avatar" android:layout_marginEnd="0.0dip" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/_50sdp" android:weightSum="2.0">
+        <LinearLayout android:id="@id/ll_settings_sidebar" android:tag="2" android:background="@drawable/dashboard_sidebar_round_edges" android:focusable="true" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginTop="10.0dip" android:layout_marginBottom="5.0dip" android:layout_weight="1.0" android:layout_marginStart="15.0dip" android:layout_marginEnd="5.0dip">
+            <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="15.0dip">
+                <ImageView android:tag="7" android:layout_width="25.0dip" android:layout_height="25.0dip" android:src="@drawable/dashboard_sidebar_settings" />
+                <TextView android:textSize="14.0sp" android:textColor="@color/dashboard_sidebar_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="7.0dip" android:text="@string/settings_small" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:id="@id/ll_account_info_sidebar" android:tag="3" android:background="@drawable/dashboard_sidebar_round_edges" android:paddingBottom="@dimen/_5sdp" android:focusable="true" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginTop="10.0dip" android:layout_weight="1.0" android:layout_marginStart="5.0dip" android:layout_marginEnd="15.0dip">
+            <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="15.0dip">
+                <ImageView android:tag="7" android:layout_width="25.0dip" android:layout_height="25.0dip" android:src="@drawable/dashboard_sidebar_account_info" />
+                <TextView android:textSize="14.0sp" android:textColor="@color/dashboard_sidebar_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="7.0dip" android:text="@string/account_info_small" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/li_playlist" android:layout_width="fill_parent" android:layout_height="@dimen/_50sdp" android:weightSum="2.0">
+        <LinearLayout android:id="@id/ll_switch_playlist_sidebar" android:tag="4" android:background="@drawable/dashboard_sidebar_round_edges" android:focusable="true" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginTop="5.0dip" android:layout_marginBottom="10.0dip" android:layout_weight="1.0" android:layout_marginStart="15.0dip" android:layout_marginEnd="5.0dip">
+            <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="15.0dip">
+                <ImageView android:tag="7" android:layout_width="25.0dip" android:layout_height="25.0dip" android:src="@drawable/dashboard_sidebar_switch_user" />
+                <TextView android:textSize="14.0sp" android:textColor="@color/dashboard_sidebar_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="7.0dip" android:text="@string/switch_user" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:id="@id/ll_add_playlist_sidebar" android:tag="5" android:background="@drawable/dashboard_sidebar_round_edges" android:focusable="true" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginTop="5.0dip" android:layout_marginBottom="10.0dip" android:layout_weight="1.0" android:layout_marginStart="5.0dip" android:layout_marginEnd="15.0dip">
+            <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="15.0dip">
+                <ImageView android:tag="7" android:layout_width="25.0dip" android:layout_height="25.0dip" android:src="@drawable/dashboard_sidebar_add_user" />
+                <TextView android:textSize="14.0sp" android:textColor="@color/dashboard_sidebar_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="7.0dip" android:text="@string/add_user" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <TextView android:textSize="16.0sp" android:textColor="@color/dashboard_sidebar_color" android:gravity="center" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="@string/accouncement" android:layout_marginStart="5.0dip" android:layout_marginEnd="1.0dip" />
+    <ImageView android:id="@id/iv_divider" android:background="#4594989e" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_marginTop="5.0dip" android:layout_marginStart="50.0dip" android:layout_marginEnd="50.0dip" />
+    <com.todkars.shimmer.ShimmerRecyclerView android:orientation="vertical" android:id="@id/shimmer_recycler_view" android:paddingBottom="10.0dip" android:layout_width="fill_parent" android:layout_height="200.0dip" android:layout_marginTop="10.0dip" app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" app:shimmer_recycler_layout="@layout/shimmer_layout" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/dashboard_sidebar_color" android:layout_gravity="center_horizontal" android:id="@id/no_announcement_found" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="50.0dip" android:text="@string/no_accouncement_found" />
+</LinearLayout>
