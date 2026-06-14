@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:z="http://schemas.android.com/apk/res-auto">
-    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/spin_kit_parent" android:layout_width="wrap_content" android:layout_height="wrap_content">
-        <com.github.ybq.android.spinkit.SpinKitView android:id="@id/spin_kit" android:layout_width="120.0dip" android:layout_height="120.0dip" android:layout_alignParentBottom="true" android:layout_alignParentEnd="true" z:SpinKit_Color="@color/colorPrimaryDark" z:layout_constraintBottom_toBottomOf="parent" z:layout_constraintEnd_toEndOf="parent" z:layout_constraintStart_toStartOf="parent" z:layout_constraintTop_toTopOf="parent" style="@style/SpinKitView.Large.DoubleBounce" />
-        <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/speed" android:layout_width="fill_parent" android:layout_height="fill_parent" z:layout_constraintTop_toBottomOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</RelativeLayout>

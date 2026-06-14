@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:z="http://schemas.android.com/apk/res-auto">
-    <item android:icon="@drawable/ic_search" android:id="@id/buscar" android:orderInCategory="0" android:title="Buscar" z:actionViewClass="androidx.appcompat.widget.SearchView" z:showAsAction="always|collapseActionView" />
-    <item android:icon="@drawable/ic_categorie" android:id="@id/categoria" android:visible="true" android:orderInCategory="1" android:title="Buscador Avanzado" z:showAsAction="always" />
-    <item android:icon="@drawable/ic_refresh" android:id="@id/refresh" android:visible="true" android:orderInCategory="2" android:title="Refrescar" z:showAsAction="always" />
-</menu>

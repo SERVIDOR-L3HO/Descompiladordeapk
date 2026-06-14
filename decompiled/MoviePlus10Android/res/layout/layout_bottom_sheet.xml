@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical" android:id="@id/bottom_layout_container" android:background="@drawable/bottom_sheet_background" android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:z="http://schemas.android.com/apk/res-auto">
-    <TextView android:textStyle="bold" android:gravity="center" android:id="@id/textTitle" android:padding="15.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Opciones" z:layout_constraintEnd_toEndOf="parent" z:layout_constraintStart_toStartOf="parent" z:layout_constraintTop_toTopOf="parent" />
-    <View android:id="@id/view" android:background="@color/colorPrimary" android:layout_width="fill_parent" android:layout_height="1.0dip" z:layout_constraintTop_toBottomOf="@id/textTitle" />
-    <ListView android:id="@id/list_bottom_sheet" android:background="@color/colorPrimary" android:layout_width="fill_parent" android:layout_height="wrap_content" z:layout_constraintTop_toBottomOf="@id/view" />
-</androidx.constraintlayout.widget.ConstraintLayout>

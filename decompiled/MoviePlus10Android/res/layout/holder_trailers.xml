@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="180.0dip" android:layout_height="140.0dip" android:paddingEnd="@dimen/size_8"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:z="http://schemas.android.com/apk/res-auto">
-    <ImageView android:id="@id/imageTrailerThumbnail" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@color/colorPrimary" android:scaleType="centerCrop" />
-    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_video_play" android:layout_centerInParent="true" />
-</RelativeLayout>
