@@ -12,6 +12,7 @@
             --secondary-bg: #1e293b;
             --sidebar-bg: #0f172a;
             --accent-color: #38bdf8;
+            --java-color: #f59e0b;
             --text-main: #f1f5f9;
             --text-muted: #94a3b8;
         }
@@ -27,34 +28,37 @@
             height: 100vh;
         }
         .sidebar {
-            width: 350px;
+            width: 320px;
+            min-width: 220px;
             background-color: var(--sidebar-bg);
             border-right: 1px solid rgba(255,255,255,0.1);
             display: flex;
             flex-direction: column;
         }
         .sidebar-header {
-            padding: 20px;
+            padding: 16px;
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         .tree-container {
             flex: 1;
             overflow-y: auto;
-            padding: 10px;
+            padding: 8px;
         }
         .main-content {
             flex: 1;
             display: flex;
             flex-direction: column;
             background-color: #020617;
+            min-width: 0;
         }
         .top-bar {
-            padding: 15px 25px;
+            padding: 12px 20px;
             background-color: var(--secondary-bg);
             border-bottom: 1px solid rgba(255,255,255,0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 12px;
         }
         .editor-container {
             flex: 1;
@@ -64,39 +68,46 @@
         pre {
             margin: 0;
             color: #e2e8f0;
-            font-family: 'Fira Code', 'Cascadia Code', monospace;
-            font-size: 14px;
-            line-height: 1.6;
+            font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+            font-size: 13px;
+            line-height: 1.65;
+            white-space: pre-wrap;
+            word-break: break-all;
         }
+
+        /* Syntax color hints */
+        .lang-java pre { color: #fde68a; }
+        .lang-kt pre   { color: #c4b5fd; }
+        .lang-xml pre  { color: #86efac; }
+        .lang-smali pre { color: #93c5fd; }
+
         .tree-item {
-            padding: 5px 10px;
+            padding: 4px 8px;
             cursor: pointer;
             border-radius: 6px;
-            font-size: 14px;
+            font-size: 13px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 7px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        .tree-item:hover {
-            background-color: rgba(56, 189, 248, 0.1);
-        }
+        .tree-item:hover { background-color: rgba(56, 189, 248, 0.08); }
         .tree-item.active {
-            background-color: rgba(56, 189, 248, 0.2);
+            background-color: rgba(56, 189, 248, 0.15);
             color: var(--accent-color);
         }
-        .tree-folder { font-weight: 500; }
+        .tree-folder { font-weight: 600; }
         .tree-children {
-            margin-left: 15px;
-            border-left: 1px solid rgba(255,255,255,0.1);
+            margin-left: 14px;
+            border-left: 1px solid rgba(255,255,255,0.08);
             display: none;
         }
         .tree-children.show { display: block; }
-        
-        /* Custom scrollbar */
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
+
+        /* Scrollbars */
+        ::-webkit-scrollbar { width: 7px; height: 7px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #475569; }
@@ -105,19 +116,54 @@
             background: linear-gradient(135deg, #10b981, #059669);
             color: white;
             border: none;
-            padding: 8px 16px;
+            padding: 7px 14px;
             border-radius: 8px;
             font-weight: 600;
+            font-size: 0.85rem;
         }
-        .compile-btn:hover {
-            opacity: 0.9;
-            color: white;
-        }
+        .compile-btn:hover { opacity: 0.9; color: white; }
+        .compile-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
         .btn-download-new {
             background: linear-gradient(135deg, #38bdf8, #0284c7);
             color: white;
             border: none;
+            font-size: 0.85rem;
         }
+
+        .badge-mode {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.72rem;
+            padding: 3px 9px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        .badge-smali {
+            background: rgba(56, 189, 248, 0.12);
+            color: var(--accent-color);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+        .badge-java {
+            background: rgba(245, 158, 11, 0.12);
+            color: var(--java-color);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .line-numbers {
+            display: flex;
+        }
+        .gutter {
+            user-select: none;
+            padding-right: 16px;
+            color: #475569;
+            text-align: right;
+            min-width: 40px;
+            font-size: 12px;
+            line-height: 1.65;
+        }
+        .code-content { flex: 1; }
     </style>
 </head>
 <body>
@@ -127,11 +173,28 @@
                 <a href="/" class="text-decoration-none text-muted small mb-2 d-block">
                     <i class="bi bi-arrow-left"></i> Volver a Proyectos
                 </a>
-                <h5 class="fw-bold text-info mb-3 truncate">{{ project_name }}</h5>
+                <h6 class="fw-bold mb-2 text-truncate" style="color: var(--accent-color);" title="{{ project_name }}">{{ project_name }}</h6>
+
+                {% if mode == 'jadx' %}
+                    <span class="badge-mode badge-java mb-3 d-inline-flex">
+                        <i class="bi bi-cup-hot-fill"></i> Java / Kotlin — jadx
+                    </span>
+                {% else %}
+                    <span class="badge-mode badge-smali mb-3 d-inline-flex">
+                        <i class="bi bi-tools"></i> Smali — apktool
+                    </span>
+                {% endif %}
+
                 <div class="d-grid gap-2">
+                    {% if mode == 'apktool' %}
                     <button class="compile-btn" id="compileBtn" onclick="compileProject()">
-                        <i class="bi bi-hammer"></i> Compilar APK
+                        <i class="bi bi-hammer"></i> Recompilar APK
                     </button>
+                    {% else %}
+                    <button class="compile-btn" disabled title="La recompilación no está disponible en modo Java/Kotlin">
+                        <i class="bi bi-hammer"></i> Recompilar APK
+                    </button>
+                    {% endif %}
                     {% if has_compiled %}
                     <a href="/download-compiled/{{ project_name }}" class="btn btn-sm btn-download-new" id="compiledDownload">
                         <i class="bi bi-download"></i> Descargar Compilado
@@ -139,17 +202,16 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="tree-container" id="treeRoot">
-                <!-- Tree will be injected here -->
-            </div>
+            <div class="tree-container" id="treeRoot"></div>
         </aside>
 
         <main class="main-content">
             <header class="top-bar">
-                <div>
-                    <span id="currentFileName" class="fw-bold text-info">Ningun archivo seleccionado</span>
+                <div class="d-flex align-items-center gap-2 overflow-hidden">
+                    <span id="currentFileIcon" class="text-muted fs-5"></span>
+                    <span id="currentFileName" class="fw-bold text-info text-truncate">Ningún archivo seleccionado</span>
                 </div>
-                <div id="fileActions" style="display: none;">
+                <div id="fileActions" style="display: none; flex-shrink: 0;">
                     <a href="#" id="rawDownload" class="btn btn-sm btn-outline-light">
                         <i class="bi bi-download"></i> Descargar
                     </a>
@@ -159,7 +221,7 @@
                 <div class="h-100 d-flex flex-column justify-content-center align-items-center text-muted">
                     <i class="bi bi-code-slash display-1 mb-4"></i>
                     <h4>Explora el código fuente</h4>
-                    <p>Selecciona un archivo del panel izquierdo para visualizarlo</p>
+                    <p class="text-center">Selecciona un archivo del panel izquierdo para visualizarlo</p>
                 </div>
             </div>
         </main>
@@ -182,6 +244,7 @@
     <script>
         const projectName = "{{ project_name }}";
         const treeData = {{ tree | tojson }};
+        const projectMode = "{{ mode }}";
         let compileModal;
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -193,11 +256,11 @@
             items.forEach(item => {
                 const itemEl = document.createElement('div');
                 const isFolder = item.type === 'folder';
-                
+
                 itemEl.innerHTML = `
                     <div class="tree-item ${isFolder ? 'tree-folder' : 'tree-file'}" data-path="${item.path}">
-                        <i class="bi ${isFolder ? 'bi-folder-fill text-warning' : getIcon(item.name)}"></i>
-                        <span>${item.name}</span>
+                        <i class="bi ${isFolder ? 'bi-folder-fill text-warning' : getIconClass(item.name)}"></i>
+                        <span class="text-truncate" title="${item.name}">${item.name}</span>
                     </div>
                 `;
 
@@ -205,83 +268,134 @@
                     const childrenContainer = document.createElement('div');
                     childrenContainer.className = 'tree-children';
                     if (item.children) renderTree(item.children, childrenContainer);
-                    
-                    itemEl.querySelector('.tree-folder').onclick = (e) => {
+
+                    itemEl.querySelector('.tree-folder').addEventListener('click', e => {
                         e.stopPropagation();
                         childrenContainer.classList.toggle('show');
                         const icon = itemEl.querySelector('i');
-                        if (childrenContainer.classList.contains('show')) {
-                            icon.className = 'bi bi-folder2-open text-warning';
-                        } else {
-                            icon.className = 'bi bi-folder-fill text-warning';
-                        }
-                    };
+                        icon.className = childrenContainer.classList.contains('show')
+                            ? 'bi bi-folder2-open text-warning'
+                            : 'bi bi-folder-fill text-warning';
+                    });
                     itemEl.appendChild(childrenContainer);
                 } else {
-                    itemEl.querySelector('.tree-file').onclick = (e) => {
+                    itemEl.querySelector('.tree-file').addEventListener('click', e => {
                         e.stopPropagation();
                         document.querySelectorAll('.tree-item').forEach(el => el.classList.remove('active'));
                         e.currentTarget.classList.add('active');
                         loadFile(item.path, item.name);
-                    };
+                    });
                 }
                 container.appendChild(itemEl);
             });
         }
 
-        function getIcon(filename) {
+        function getIconClass(filename) {
             const ext = filename.split('.').pop().toLowerCase();
             const icons = {
-                'xml': 'bi-filetype-xml text-info',
-                'smali': 'bi-file-earmark-code text-primary',
-                'png': 'bi-file-earmark-image text-success',
-                'jpg': 'bi-file-earmark-image text-success',
-                'yml': 'bi-filetype-yml text-warning',
-                'json': 'bi-filetype-json text-warning'
+                'java':       'bi-filetype-java text-warning',
+                'kt':         'bi-file-earmark-code text-purple',
+                'xml':        'bi-filetype-xml text-info',
+                'smali':      'bi-file-earmark-code text-primary',
+                'png':        'bi-file-earmark-image text-success',
+                'jpg':        'bi-file-earmark-image text-success',
+                'webp':       'bi-file-earmark-image text-success',
+                'gif':        'bi-file-earmark-image text-success',
+                'yml':        'bi-filetype-yml text-warning',
+                'yaml':       'bi-filetype-yml text-warning',
+                'json':       'bi-filetype-json text-warning',
+                'gradle':     'bi-gear-fill text-success',
+                'properties': 'bi-file-earmark-text text-secondary',
+                'md':         'bi-markdown text-white',
+                'txt':        'bi-file-earmark-text',
+                'so':         'bi-file-earmark-binary text-danger',
+                'dex':        'bi-file-binary text-danger',
             };
-            return icons[ext] || 'bi-file-earmark-text';
+            return icons[ext] || 'bi-file-earmark-text text-secondary';
+        }
+
+        function getFileIcon(filename) {
+            const ext = filename.split('.').pop().toLowerCase();
+            const map = {
+                'java': '☕', 'kt': '🎯', 'xml': '📄',
+                'smali': '🔧', 'json': '📋', 'gradle': '⚙️',
+                'png': '🖼️', 'jpg': '🖼️', 'webp': '🖼️',
+            };
+            return map[ext] || '📄';
+        }
+
+        function getLangClass(filename) {
+            const ext = filename.split('.').pop().toLowerCase();
+            const map = { java: 'lang-java', kt: 'lang-kt', xml: 'lang-xml', smali: 'lang-smali' };
+            return map[ext] || '';
         }
 
         function loadFile(path, name) {
+            const editorArea = document.getElementById('editorArea');
+            editorArea.innerHTML = `
+                <div class="h-100 d-flex justify-content-center align-items-center text-muted">
+                    <div class="spinner-border spinner-border-sm me-2"></div> Cargando...
+                </div>`;
+
             fetch(`/file/${projectName}/${path}`)
                 .then(r => r.json())
                 .then(data => {
                     document.getElementById('currentFileName').textContent = name;
+                    document.getElementById('currentFileIcon').textContent = getFileIcon(name);
                     document.getElementById('fileActions').style.display = 'block';
                     document.getElementById('rawDownload').href = `/download/${projectName}/${path}`;
-                    
-                    const editorArea = document.getElementById('editorArea');
+
                     if (data.type === 'text') {
-                        editorArea.innerHTML = `<pre><code>${escapeHtml(data.content)}</code></pre>`;
+                        const lines = data.content.split('\n');
+                        const lineNums = lines.map((_, i) => `<div>${i + 1}</div>`).join('');
+                        const codeHtml = escapeHtml(data.content);
+                        const langClass = getLangClass(name);
+
+                        editorArea.className = `editor-container ${langClass}`;
+                        editorArea.innerHTML = `
+                            <div class="line-numbers">
+                                <div class="gutter">${lineNums}</div>
+                                <pre class="code-content"><code>${codeHtml}</code></pre>
+                            </div>`;
                     } else {
+                        editorArea.className = 'editor-container';
                         editorArea.innerHTML = `
                             <div class="h-100 d-flex flex-column justify-content-center align-items-center text-muted">
                                 <i class="bi bi-file-earmark-binary display-1 mb-4"></i>
                                 <h4>Archivo Binario</h4>
-                                <p>Este tipo de archivo no se puede previsualizar directamente.</p>
-                                <a href="/download/${projectName}/${path}" class="btn btn-outline-info mt-2">Descargar para ver</a>
+                                <p>Este tipo de archivo no se puede previsualizar.</p>
+                                <a href="/download/${projectName}/${path}" class="btn btn-outline-info mt-2">
+                                    <i class="bi bi-download me-1"></i> Descargar archivo
+                                </a>
                             </div>`;
                     }
+                })
+                .catch(() => {
+                    editorArea.innerHTML = `<div class="text-danger p-4">Error al cargar el archivo.</div>`;
                 });
         }
 
         function compileProject() {
+            if (projectMode === 'jadx') {
+                alert('La recompilación no está disponible para proyectos Java/Kotlin.');
+                return;
+            }
             if (!confirm('¿Deseas iniciar la compilación de este proyecto?')) return;
-            
+
             compileModal.show();
-            
+
             fetch(`/compile/${projectName}`, { method: 'POST' })
                 .then(r => r.json())
                 .then(res => {
                     compileModal.hide();
                     if (res.success) {
                         alert('¡Compilación exitosa!');
-                        location.reload(); // To show the download button
+                        location.reload();
                     } else {
                         alert('Error en la compilación: ' + (res.details || res.error));
                     }
                 })
-                .catch(err => {
+                .catch(() => {
                     compileModal.hide();
                     alert('Error de red al intentar compilar');
                 });
