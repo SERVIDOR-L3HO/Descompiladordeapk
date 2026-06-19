@@ -8,337 +8,579 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
         :root {
-            --primary-bg: #0f172a;
-            --secondary-bg: #1e293b;
-            --accent-color: #38bdf8;
-            --java-color: #f59e0b;
-            --smali-color: #38bdf8;
-            --text-main: #f1f5f9;
-            --text-muted: #94a3b8;
+            --bg-base:    #080e1a;
+            --bg-surface: #0f1a2e;
+            --bg-card:    #111d33;
+            --bg-hover:   #162240;
+            --border:     rgba(99, 155, 255, 0.12);
+            --accent:     #4f8fff;
+            --accent-dim: rgba(79, 143, 255, 0.15);
+            --java:       #f59e0b;
+            --java-dim:   rgba(245, 158, 11, 0.15);
+            --green:      #22c55e;
+            --green-dim:  rgba(34, 197, 94, 0.12);
+            --text:       #e2eaf7;
+            --text-muted: #6b82a8;
+            --text-dim:   #3d5278;
         }
+
+        * { box-sizing: border-box; }
+
         body {
-            background-color: var(--primary-bg);
-            color: var(--text-main);
+            background-color: var(--bg-base);
+            color: var(--text);
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
-        }
-        .navbar {
-            background-color: var(--secondary-bg) !important;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        .card {
-            background-color: var(--secondary-bg);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: var(--text-main);
-            border-radius: 12px;
-        }
-        .upload-card {
-            border: 2px dashed rgba(56, 189, 248, 0.3);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .upload-card:hover, .upload-card.drag-over {
-            border-color: var(--accent-color);
-            background-color: rgba(56, 189, 248, 0.05);
+            min-height: 100vh;
         }
 
-        /* Mode selector */
-        .mode-selector {
+        /* ── Topbar ── */
+        .topbar {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            padding: 0 28px;
+            height: 56px;
             display: flex;
-            gap: 12px;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text);
+        }
+        .brand-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--accent-dim);
+            border: 1px solid rgba(79,143,255,0.3);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
             justify-content: center;
-            margin: 20px 0 10px;
+            font-size: 16px;
         }
-        .mode-btn {
-            flex: 1;
-            max-width: 220px;
-            padding: 14px 16px;
-            border-radius: 12px;
-            border: 2px solid rgba(255,255,255,0.1);
-            background: rgba(255,255,255,0.03);
-            color: var(--text-muted);
-            cursor: pointer;
-            transition: all 0.25s;
-            text-align: center;
-            user-select: none;
+        .brand-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.01em;
         }
-        .mode-btn:hover {
-            border-color: rgba(255,255,255,0.25);
-            color: var(--text-main);
-        }
-        .mode-btn.active-smali {
-            border-color: var(--smali-color);
-            background: rgba(56, 189, 248, 0.08);
-            color: var(--smali-color);
-        }
-        .mode-btn.active-java {
-            border-color: var(--java-color);
-            background: rgba(245, 158, 11, 0.08);
-            color: var(--java-color);
-        }
-        .mode-btn .mode-icon { font-size: 1.6rem; display: block; margin-bottom: 6px; }
-        .mode-btn .mode-title { font-weight: 700; font-size: 0.95rem; }
-        .mode-btn .mode-desc { font-size: 0.75rem; opacity: 0.7; margin-top: 2px; }
-
-        .btn-primary {
-            background-color: var(--accent-color);
-            border: none;
-            color: #0f172a;
+        .brand-version {
+            font-size: 0.68rem;
+            color: var(--accent);
+            background: var(--accent-dim);
+            border: 1px solid rgba(79,143,255,0.25);
+            border-radius: 4px;
+            padding: 1px 6px;
             font-weight: 600;
         }
-        .btn-primary:hover { background-color: #7dd3fc; color: #0f172a; }
-        .btn-primary.java-mode {
-            background-color: var(--java-color);
+        .topbar-tools {
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
-        .btn-primary.java-mode:hover { background-color: #fcd34d; }
-
-        .project-item { transition: all 0.2s; }
-        .project-item:hover { background-color: rgba(255,255,255,0.05); }
-
-        .progress { background-color: #334155; height: 8px; }
-        .progress-bar { background-color: var(--accent-color); }
-        .progress-bar.java-progress { background-color: var(--java-color); }
-
-        .badge-smali {
-            background: rgba(56, 189, 248, 0.15);
-            color: var(--smali-color);
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            font-size: 0.7rem;
-            padding: 2px 8px;
+        .tool-pill {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
             border-radius: 20px;
+            padding: 4px 10px;
+            font-size: 0.73rem;
+            color: var(--text-muted);
         }
-        .badge-java {
-            background: rgba(245, 158, 11, 0.15);
-            color: var(--java-color);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            font-size: 0.7rem;
-            padding: 2px 8px;
-            border-radius: 20px;
+        .tool-pill .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 6px var(--green);
         }
+
+        /* ── Page layout ── */
+        .page { max-width: 820px; margin: 0 auto; padding: 40px 20px 60px; }
+
+        /* ── Upload zone ── */
+        .upload-zone {
+            background: var(--bg-card);
+            border: 1.5px dashed rgba(79,143,255,0.25);
+            border-radius: 16px;
+            padding: 40px 32px 32px;
+            text-align: center;
+            transition: border-color 0.25s, background 0.25s;
+            cursor: default;
+            margin-bottom: 12px;
+        }
+        .upload-zone.drag-over {
+            border-color: var(--accent);
+            background: rgba(79,143,255,0.04);
+        }
+        .upload-zone:hover { border-color: rgba(79,143,255,0.4); }
+
+        .upload-icon-wrap {
+            width: 68px; height: 68px;
+            background: var(--accent-dim);
+            border: 1px solid rgba(79,143,255,0.25);
+            border-radius: 18px;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+            color: var(--accent);
+            transition: all 0.25s;
+        }
+        .upload-zone.java-mode .upload-icon-wrap {
+            background: var(--java-dim);
+            border-color: rgba(245,158,11,0.25);
+            color: var(--java);
+        }
+
+        .upload-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            letter-spacing: -0.01em;
+        }
+        .upload-sub {
+            font-size: 0.83rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        /* ── Mode cards ── */
+        .mode-row {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 22px;
+        }
+        .mode-card {
+            flex: 1;
+            max-width: 200px;
+            padding: 14px 12px;
+            border-radius: 12px;
+            border: 1.5px solid var(--border);
+            background: var(--bg-surface);
+            color: var(--text-muted);
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+            user-select: none;
+        }
+        .mode-card:hover { border-color: rgba(255,255,255,0.2); color: var(--text); }
+        .mode-card .mc-icon { font-size: 1.5rem; margin-bottom: 6px; display: block; }
+        .mode-card .mc-title { font-size: 0.83rem; font-weight: 700; display: block; }
+        .mode-card .mc-sub   { font-size: 0.7rem; opacity: 0.65; display: block; margin-top: 2px; }
+
+        .mode-card.sel-smali {
+            border-color: var(--accent);
+            background: var(--accent-dim);
+            color: var(--accent);
+        }
+        .mode-card.sel-java {
+            border-color: var(--java);
+            background: var(--java-dim);
+            color: var(--java);
+        }
+
+        /* ── Upload button ── */
+        .upload-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent);
+            color: #050d1f;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border: none;
+            border-radius: 10px;
+            padding: 11px 32px;
+            cursor: pointer;
+            transition: all 0.2s;
+            letter-spacing: 0.01em;
+        }
+        .upload-btn:hover { background: #6fa8ff; transform: translateY(-1px); }
+        .upload-btn.java { background: var(--java); }
+        .upload-btn.java:hover { background: #fcd34d; }
+
+        /* ── Progress ── */
+        .progress-wrap { margin-top: 20px; }
+        .prog-bar-track {
+            height: 4px;
+            background: var(--bg-hover);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+        .prog-bar-fill {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 2px;
+            transition: width 0.3s;
+        }
+        .prog-bar-fill.java { background: var(--java); }
+        .prog-status { font-size: 0.78rem; color: var(--text-muted); }
+
+        /* ── Error ── */
+        .err-box {
+            margin-top: 14px;
+            padding: 10px 14px;
+            background: rgba(239,68,68,0.1);
+            border: 1px solid rgba(239,68,68,0.25);
+            border-radius: 8px;
+            color: #fca5a5;
+            font-size: 0.82rem;
+            text-align: left;
+        }
+
+        /* ── Section header ── */
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 36px 0 14px;
+        }
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .count-pill {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1px 8px;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        /* ── Project list ── */
+        .project-list { display: flex; flex-direction: column; gap: 8px; }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            transition: all 0.2s;
+        }
+        .project-card:hover {
+            border-color: rgba(79,143,255,0.25);
+            background: var(--bg-hover);
+        }
+        .proj-left { display: flex; align-items: center; gap: 14px; min-width: 0; }
+        .proj-icon {
+            width: 40px; height: 40px;
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        .proj-icon.smali { background: var(--accent-dim); }
+        .proj-icon.java  { background: var(--java-dim); }
+        .proj-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .proj-meta { display: flex; align-items: center; gap: 6px; margin-top: 3px; }
+        .tag {
+            font-size: 0.67rem;
+            font-weight: 600;
+            padding: 2px 7px;
+            border-radius: 5px;
+            letter-spacing: 0.02em;
+        }
+        .tag-smali { background: var(--accent-dim); color: var(--accent); }
+        .tag-java  { background: var(--java-dim);  color: var(--java); }
+
+        .proj-actions { display: flex; gap: 6px; flex-shrink: 0; }
+        .btn-open {
+            display: inline-flex; align-items: center; gap: 5px;
+            background: var(--accent-dim);
+            border: 1px solid rgba(79,143,255,0.2);
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-open:hover { background: rgba(79,143,255,0.25); color: var(--accent); }
+        .btn-del {
+            width: 32px; height: 32px;
+            background: transparent;
+            border: 1px solid rgba(239,68,68,0.2);
+            color: rgba(239,68,68,0.5);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 14px;
+        }
+        .btn-del:hover { background: rgba(239,68,68,0.1); color: #f87171; border-color: rgba(239,68,68,0.4); }
+
+        /* ── Empty state ── */
+        .empty-state {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 48px 20px;
+            text-align: center;
+            color: var(--text-muted);
+        }
+        .empty-state i { font-size: 2rem; opacity: 0.3; display: block; margin-bottom: 10px; }
+        .empty-state p { font-size: 0.85rem; margin: 0; }
+
+        /* ── Info bar ── */
+        .info-bar {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 0;
+        }
+        .info-chip {
+            display: flex; align-items: center; gap: 6px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 7px 12px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            flex: 1;
+            min-width: 130px;
+        }
+        .info-chip i { font-size: 15px; }
+        .info-chip strong { color: var(--text); }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark mb-5">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="/">
-                <i class="bi bi-box-seam me-2 text-info"></i>
-                <span class="fw-bold">APK Decompiler Pro</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+
+    <!-- Topbar -->
+    <header class="topbar">
+        <a class="brand" href="/">
+            <div class="brand-icon"><i class="bi bi-box-seam"></i></div>
+            <span class="brand-name">APK Decompiler</span>
+            <span class="brand-version">Pro</span>
+        </a>
+        <div class="topbar-tools">
+            <div class="tool-pill"><span class="dot"></span> apktool</div>
+            <div class="tool-pill"><span class="dot"></span> jadx</div>
+        </div>
+    </header>
+
+    <div class="page">
+
+        <!-- Info chips -->
+        <div class="info-bar mb-4">
+            <div class="info-chip">
+                <i class="bi bi-tools text-primary"></i>
+                <span><strong>Smali</strong> · apktool — edición y recompilación</span>
+            </div>
+            <div class="info-chip">
+                <i class="bi bi-cup-hot" style="color:var(--java)"></i>
+                <span><strong>Java/Kotlin</strong> · jadx — código fuente legible</span>
+            </div>
+            <div class="info-chip">
+                <i class="bi bi-hdd-stack text-success"></i>
+                <span>Hasta <strong>100 MB</strong> por APK</span>
+            </div>
+        </div>
+
+        <!-- Upload zone -->
+        <div class="upload-zone" id="dropZone">
+            <input type="file" id="fileInput" accept=".apk" class="d-none">
+
+            <div class="upload-icon-wrap" id="uploadIconWrap">
+                <i class="bi bi-cloud-arrow-up"></i>
+            </div>
+
+            <div class="upload-title">Subir APK</div>
+            <div class="upload-sub">Arrastra el archivo aquí, o haz clic para seleccionar</div>
+
+            <!-- Mode selector -->
+            <div class="mode-row">
+                <div class="mode-card sel-smali" id="modeSmali" onclick="setMode('apktool')">
+                    <span class="mc-icon">🔧</span>
+                    <span class="mc-title">Smali / Resources</span>
+                    <span class="mc-sub">apktool · recompilable</span>
+                </div>
+                <div class="mode-card" id="modeJava" onclick="setMode('jadx')">
+                    <span class="mc-icon">☕</span>
+                    <span class="mc-title">Java / Kotlin</span>
+                    <span class="mc-sub">jadx · fuente legible</span>
+                </div>
+            </div>
+
+            <button class="upload-btn" id="uploadBtn" onclick="document.getElementById('fileInput').click()">
+                <i class="bi bi-folder2-open"></i> Seleccionar archivo
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/"><i class="bi bi-house-door me-1"></i> Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/movies"><i class="bi bi-film me-1"></i> Películas</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-
-                <div class="card p-4 p-md-5 mb-5 upload-card text-center" id="dropZone">
-                    <input type="file" id="fileInput" accept=".apk" class="d-none">
-
-                    <i class="bi bi-cloud-arrow-up display-1 text-info mb-2" id="uploadIcon"></i>
-                    <h2 class="fw-bold mb-1">Subir APK</h2>
-                    <p class="text-muted mb-0">Arrastra tu archivo aquí o haz clic para explorar</p>
-
-                    <!-- Mode selector -->
-                    <div class="mode-selector">
-                        <div class="mode-btn active-smali" id="modeSmali" onclick="setMode('apktool')">
-                            <span class="mode-icon">🔧</span>
-                            <div class="mode-title">Smali / Resources</div>
-                            <div class="mode-desc">apktool — edición y recompilación</div>
-                        </div>
-                        <div class="mode-btn" id="modeJava" onclick="setMode('jadx')">
-                            <span class="mode-icon">☕</span>
-                            <div class="mode-title">Java / Kotlin</div>
-                            <div class="mode-desc">jadx — código fuente legible</div>
-                        </div>
-                    </div>
-
-                    <button class="btn btn-primary btn-lg mt-3 px-5" id="selectBtn" onclick="document.getElementById('fileInput').click()">
-                        Seleccionar Archivo
-                    </button>
-
-                    <div class="mt-4 d-none" id="progressContainer">
-                        <div class="progress mb-2">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" id="progressBar" role="progressbar" style="width: 0%"></div>
-                        </div>
-                        <p class="small" id="statusText" style="color: var(--accent-color);">Preparando...</p>
-                    </div>
-                    <div class="alert alert-danger mt-3 d-none" id="errorAlert"></div>
+            <!-- Progress -->
+            <div class="progress-wrap d-none" id="progressWrap">
+                <div class="prog-bar-track">
+                    <div class="prog-bar-fill" id="progFill" style="width:0%"></div>
                 </div>
+                <div class="prog-status" id="progStatus">Preparando...</div>
+            </div>
 
-                <h4 class="mb-4 d-flex align-items-center">
-                    <i class="bi bi-collection me-2 text-info"></i>
-                    Proyectos Recientes
-                </h4>
+            <!-- Error -->
+            <div class="err-box d-none" id="errBox"></div>
+        </div>
 
-                <div class="card">
-                    <div class="list-group list-group-flush" id="projectList">
-                        {% if projects %}
-                            {% for project in projects %}
-                            <div class="list-group-item bg-transparent border-opacity-10 border-white d-flex justify-content-between align-items-center p-3 project-item" id="project-{{ project.name }}">
-                                <div>
-                                    <h6 class="mb-1 text-white">{{ project.name }}</h6>
-                                    {% if project.mode == 'jadx' %}
-                                        <span class="badge-java"><i class="bi bi-cup-hot-fill me-1"></i>Java / Kotlin</span>
-                                    {% else %}
-                                        <span class="badge-smali"><i class="bi bi-tools me-1"></i>Smali</span>
-                                    {% endif %}
-                                </div>
-                                <div class="d-flex gap-2">
-                                    <a href="/project/{{ project.name }}" class="btn btn-sm btn-outline-info">
-                                        <i class="bi bi-folder2-open"></i> Abrir
-                                    </a>
-                                    <button class="btn btn-sm btn-outline-danger" onclick="deleteProject('{{ project.name }}')">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </div>
+        <!-- Projects -->
+        <div class="section-header">
+            <div class="section-title">
+                <i class="bi bi-layers"></i> Proyectos
+            </div>
+            <span class="count-pill">{{ projects | length }}</span>
+        </div>
+
+        <div class="project-list">
+            {% if projects %}
+                {% for p in projects %}
+                <div class="project-card" id="proj-{{ p.name }}">
+                    <div class="proj-left">
+                        <div class="proj-icon {{ 'java' if p.mode == 'jadx' else 'smali' }}">
+                            {{ '☕' if p.mode == 'jadx' else '🔧' }}
+                        </div>
+                        <div style="min-width:0">
+                            <div class="proj-name" title="{{ p.name }}">{{ p.name }}</div>
+                            <div class="proj-meta">
+                                {% if p.mode == 'jadx' %}
+                                    <span class="tag tag-java">Java / Kotlin</span>
+                                    <span style="font-size:0.68rem;color:var(--text-dim)">jadx</span>
+                                {% else %}
+                                    <span class="tag tag-smali">Smali</span>
+                                    <span style="font-size:0.68rem;color:var(--text-dim)">apktool</span>
+                                {% endif %}
                             </div>
-                            {% endfor %}
-                        {% else %}
-                            <div class="p-5 text-center text-muted">
-                                <i class="bi bi-inbox display-4 d-block mb-3"></i>
-                                No hay proyectos todavía
-                            </div>
-                        {% endif %}
+                        </div>
+                    </div>
+                    <div class="proj-actions">
+                        <a href="/project/{{ p.name }}" class="btn-open">
+                            <i class="bi bi-folder2-open"></i> Abrir
+                        </a>
+                        <button class="btn-del" onclick="deleteProject('{{ p.name }}')" title="Eliminar">
+                            <i class="bi bi-trash3"></i>
+                        </button>
                     </div>
                 </div>
-
-            </div>
+                {% endfor %}
+            {% else %}
+                <div class="empty-state">
+                    <i class="bi bi-inbox"></i>
+                    <p>No hay proyectos todavía. Sube tu primer APK para comenzar.</p>
+                </div>
+            {% endif %}
         </div>
+
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        const dropZone = document.getElementById('dropZone');
-        const fileInput = document.getElementById('fileInput');
-        const progressContainer = document.getElementById('progressContainer');
-        const progressBar = document.getElementById('progressBar');
-        const statusText = document.getElementById('statusText');
-        const errorAlert = document.getElementById('errorAlert');
-        const selectBtn = document.getElementById('selectBtn');
-        const uploadIcon = document.getElementById('uploadIcon');
+        const dropZone   = document.getElementById('dropZone');
+        const fileInput  = document.getElementById('fileInput');
+        const progWrap   = document.getElementById('progressWrap');
+        const progFill   = document.getElementById('progFill');
+        const progStatus = document.getElementById('progStatus');
+        const errBox     = document.getElementById('errBox');
+        const uploadBtn  = document.getElementById('uploadBtn');
+        const iconWrap   = document.getElementById('uploadIconWrap');
 
         let currentMode = 'apktool';
 
         function setMode(mode) {
             currentMode = mode;
-            const smaliBtn = document.getElementById('modeSmali');
-            const javaBtn = document.getElementById('modeJava');
-
-            smaliBtn.classList.remove('active-smali', 'active-java');
-            javaBtn.classList.remove('active-smali', 'active-java');
-
-            if (mode === 'apktool') {
-                smaliBtn.classList.add('active-smali');
-                selectBtn.classList.remove('java-mode');
-                selectBtn.style.backgroundColor = '';
-                uploadIcon.className = 'bi bi-cloud-arrow-up display-1 text-info mb-2';
-                progressBar.classList.remove('java-progress');
-                statusText.style.color = 'var(--accent-color)';
-            } else {
-                javaBtn.classList.add('active-java');
-                selectBtn.classList.add('java-mode');
-                uploadIcon.className = 'bi bi-cloud-arrow-up display-1 mb-2';
-                uploadIcon.style.color = '#f59e0b';
-                progressBar.classList.add('java-progress');
-                statusText.style.color = '#f59e0b';
-            }
+            document.getElementById('modeSmali').className = 'mode-card' + (mode === 'apktool' ? ' sel-smali' : '');
+            document.getElementById('modeJava').className  = 'mode-card' + (mode === 'jadx'    ? ' sel-java'  : '');
+            dropZone.className = 'upload-zone' + (mode === 'jadx' ? ' java-mode' : '');
+            uploadBtn.className = 'upload-btn' + (mode === 'jadx' ? ' java' : '');
+            progFill.className  = 'prog-bar-fill' + (mode === 'jadx' ? ' java' : '');
         }
 
-        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(e => {
-            dropZone.addEventListener(e, ev => ev.preventDefault());
-        });
-
-        dropZone.addEventListener('dragover', () => dropZone.classList.add('drag-over'));
+        ['dragenter','dragover','dragleave','drop'].forEach(ev =>
+            dropZone.addEventListener(ev, e => e.preventDefault())
+        );
+        dropZone.addEventListener('dragover',  () => dropZone.classList.add('drag-over'));
         dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
-
         dropZone.addEventListener('drop', e => {
             dropZone.classList.remove('drag-over');
-            const file = e.dataTransfer.files[0];
-            if (file && file.name.endsWith('.apk')) uploadFile(file);
-            else showError('Solo se aceptan archivos .apk');
+            const f = e.dataTransfer.files[0];
+            if (f && f.name.endsWith('.apk')) uploadFile(f);
+            else showErr('Solo se aceptan archivos .apk');
         });
-
-        fileInput.addEventListener('change', e => {
-            if (e.target.files[0]) uploadFile(e.target.files[0]);
-        });
+        fileInput.addEventListener('change', e => { if (e.target.files[0]) uploadFile(e.target.files[0]); });
 
         function uploadFile(file) {
-            errorAlert.classList.add('d-none');
-            progressContainer.classList.remove('d-none');
-            progressBar.style.width = '0%';
+            errBox.classList.add('d-none');
+            progWrap.classList.remove('d-none');
+            progFill.style.width = '0%';
+            progStatus.textContent = 'Subiendo APK...';
 
-            const isJava = currentMode === 'jadx';
-            statusText.textContent = 'Subiendo APK...';
-
-            const formData = new FormData();
-            formData.append('file', file);
-            formData.append('mode', currentMode);
+            const fd = new FormData();
+            fd.append('file', file);
+            fd.append('mode', currentMode);
 
             const xhr = new XMLHttpRequest();
             xhr.upload.onprogress = e => {
-                if (e.lengthComputable) {
-                    const pct = (e.loaded / e.total) * 35;
-                    progressBar.style.width = pct + '%';
-                }
+                if (e.lengthComputable) progFill.style.width = ((e.loaded / e.total) * 35) + '%';
             };
-
             xhr.onload = () => {
                 if (xhr.status === 200) {
+                    progFill.style.width = '100%';
+                    progStatus.textContent = '¡Completado!';
                     const res = JSON.parse(xhr.responseText);
-                    progressBar.style.width = '100%';
-                    statusText.textContent = '¡Completado!';
-                    setTimeout(() => window.location.href = '/project/' + res.project, 800);
+                    setTimeout(() => window.location.href = '/project/' + res.project, 700);
                 } else {
-                    try {
-                        const res = JSON.parse(xhr.responseText);
-                        showError(res.error || 'Error en la subida');
-                    } catch {
-                        showError('Error en el servidor');
-                    }
+                    try { showErr(JSON.parse(xhr.responseText).error || 'Error al procesar'); }
+                    catch { showErr('Error en el servidor'); }
                 }
             };
-
-            xhr.onerror = () => showError('Error de conexión al servidor');
+            xhr.onerror = () => showErr('Error de conexión');
             xhr.open('POST', '/upload');
-            xhr.send(formData);
+            xhr.send(fd);
 
             setTimeout(() => {
-                if (parseFloat(progressBar.style.width) < 40) {
-                    if (isJava) {
-                        statusText.textContent = 'Descompilando a Java/Kotlin con jadx... (puede tardar varios minutos)';
-                    } else {
-                        statusText.textContent = 'Descompilando con apktool... (esto puede tardar)';
-                    }
-                    progressBar.style.width = '60%';
+                if (parseFloat(progFill.style.width) < 40) {
+                    progFill.style.width = '55%';
+                    progStatus.textContent = currentMode === 'jadx'
+                        ? 'Descompilando con jadx... puede tardar varios minutos'
+                        : 'Descompilando con apktool...';
                 }
             }, 2500);
         }
 
-        function showError(msg) {
-            progressContainer.classList.add('d-none');
-            errorAlert.textContent = msg;
-            errorAlert.classList.remove('d-none');
+        function showErr(msg) {
+            progWrap.classList.add('d-none');
+            errBox.textContent = msg;
+            errBox.classList.remove('d-none');
         }
 
         function deleteProject(name) {
-            if (!confirm('¿Estás seguro de eliminar el proyecto ' + name + '?')) return;
+            if (!confirm('¿Eliminar el proyecto "' + name + '"?')) return;
             fetch('/delete/' + name, { method: 'POST' })
                 .then(r => r.json())
                 .then(res => {
-                    if (res.success) document.getElementById('project-' + name).remove();
-                    else alert(res.error);
+                    if (res.success) {
+                        const el = document.getElementById('proj-' + name);
+                        if (el) el.remove();
+                    } else alert(res.error);
                 });
         }
     </script>

@@ -1,5 +1,4 @@
 import os
-import requests
 import subprocess
 import shutil
 import logging
@@ -10,9 +9,6 @@ logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SESSION_SECRET")
-
-TMDB_API_KEY = os.environ.get("TMDB_API_KEY", "ec4ff1b6182572d3e74735e74ca3a8ef")
-TMDB_BASE_URL = "https://api.themoviedb.org/3"
 
 app.config['UPLOAD_FOLDER'] = 'uploads'
 app.config['DECOMPILED_FOLDER'] = 'decompiled'
@@ -63,38 +59,6 @@ def get_project_mode(project_path):
             return f.read().strip()
     return 'apktool'
 
-
-@app.route('/movies')
-def movies():
-    query = request.args.get('q', '')
-    if query:
-        url = f"{TMDB_BASE_URL}/search/movie"
-        params = {'api_key': TMDB_API_KEY, 'query': query, 'language': 'es-MX'}
-    else:
-        url = f"{TMDB_BASE_URL}/movie/popular"
-        params = {'api_key': TMDB_API_KEY, 'language': 'es-MX'}
-
-    try:
-        response = requests.get(url, params=params)
-        data = response.json()
-        movies_list = data.get('results', [])
-    except Exception as e:
-        movies_list = []
-        logging.error(f"Error TMDB: {e}")
-
-    return render_template('movies.html', movies=movies_list, query=query)
-
-
-@app.route('/watch/<int:movie_id>')
-def watch_movie(movie_id):
-    url = f"{TMDB_BASE_URL}/movie/{movie_id}"
-    params = {'api_key': TMDB_API_KEY, 'language': 'es-MX'}
-    try:
-        response = requests.get(url, params=params)
-        movie = response.json()
-    except:
-        return redirect(url_for('movies'))
-    return render_template('player.html', movie=movie)
 
 
 @app.route('/')
