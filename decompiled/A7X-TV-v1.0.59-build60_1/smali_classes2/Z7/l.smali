@@ -1,0 +1,42 @@
+.class public final synthetic LZ7/l;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# instance fields
+.field public final synthetic q:LZ7/B;
+
+.field public final synthetic r:Ll8/b;
+
+
+# direct methods
+.method public synthetic constructor <init>(LZ7/B;Ll8/b;)V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, LZ7/l;->q:LZ7/B;
+
+    iput-object p2, p0, LZ7/l;->r:Ll8/b;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final run()V
+    .locals 2
+
+    .line 1
+    iget-object v0, p0, LZ7/l;->q:LZ7/B;
+
+    iget-object v1, p0, LZ7/l;->r:Ll8/b;
+
+    invoke-static {v0, v1}, LZ7/n;->i(LZ7/B;Ll8/b;)V
+
+    return-void
+.end method

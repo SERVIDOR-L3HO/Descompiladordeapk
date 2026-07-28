@@ -1,0 +1,198 @@
+.class final LL0/T$b;
+.super LSa/q;
+.source "SourceFile"
+
+# interfaces
+.implements Lkotlin/jvm/functions/Function1;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = LL0/T;->d(LL0/M;LL0/M;ILkotlin/jvm/functions/Function1;)Z
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x18
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic r:LL0/M;
+
+.field final synthetic s:LL0/M;
+
+.field final synthetic t:LL0/M;
+
+.field final synthetic u:I
+
+.field final synthetic v:Lkotlin/jvm/functions/Function1;
+
+
+# direct methods
+.method constructor <init>(LL0/M;LL0/M;LL0/M;ILkotlin/jvm/functions/Function1;)V
+    .locals 0
+
+    .line 1
+    iput-object p1, p0, LL0/T$b;->r:LL0/M;
+
+    .line 2
+    .line 3
+    iput-object p2, p0, LL0/T$b;->s:LL0/M;
+
+    .line 4
+    .line 5
+    iput-object p3, p0, LL0/T$b;->t:LL0/M;
+
+    .line 6
+    .line 7
+    iput p4, p0, LL0/T$b;->u:I
+
+    .line 8
+    .line 9
+    iput-object p5, p0, LL0/T$b;->v:Lkotlin/jvm/functions/Function1;
+
+    .line 10
+    .line 11
+    const/4 p1, 0x1
+
+    .line 12
+    invoke-direct {p0, p1}, LSa/q;-><init>(I)V
+
+    .line 13
+    .line 14
+    .line 15
+    return-void
+.end method
+
+
+# virtual methods
+.method public final a(Le1/e$a;)Ljava/lang/Boolean;
+    .locals 4
+
+    .line 1
+    iget-object v0, p0, LL0/T$b;->r:LL0/M;
+
+    .line 2
+    .line 3
+    iget-object v1, p0, LL0/T$b;->s:LL0/M;
+
+    .line 4
+    .line 5
+    invoke-static {v1}, Lg1/k;->t(Lg1/j;)Lg1/s0;
+
+    .line 6
+    .line 7
+    .line 8
+    move-result-object v1
+
+    .line 9
+    invoke-interface {v1}, Lg1/s0;->getFocusOwner()LL0/q;
+
+    .line 10
+    .line 11
+    .line 12
+    move-result-object v1
+
+    .line 13
+    invoke-interface {v1}, LL0/q;->k()LL0/M;
+
+    .line 14
+    .line 15
+    .line 16
+    move-result-object v1
+
+    .line 17
+    if-eq v0, v1, :cond_0
+
+    .line 18
+    .line 19
+    sget-object p1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+
+    .line 20
+    .line 21
+    return-object p1
+
+    .line 22
+    :cond_0
+    iget-object v0, p0, LL0/T$b;->s:LL0/M;
+
+    .line 23
+    .line 24
+    iget-object v1, p0, LL0/T$b;->t:LL0/M;
+
+    .line 25
+    .line 26
+    iget v2, p0, LL0/T$b;->u:I
+
+    .line 27
+    .line 28
+    iget-object v3, p0, LL0/T$b;->v:Lkotlin/jvm/functions/Function1;
+
+    .line 29
+    .line 30
+    invoke-static {v0, v1, v2, v3}, LL0/T;->a(LL0/M;LL0/M;ILkotlin/jvm/functions/Function1;)Z
+
+    .line 31
+    .line 32
+    .line 33
+    move-result v0
+
+    .line 34
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    .line 35
+    .line 36
+    .line 37
+    move-result-object v1
+
+    .line 38
+    if-nez v0, :cond_2
+
+    .line 39
+    .line 40
+    invoke-interface {p1}, Le1/e$a;->a()Z
+
+    .line 41
+    .line 42
+    .line 43
+    move-result p1
+
+    .line 44
+    if-nez p1, :cond_1
+
+    .line 45
+    .line 46
+    goto :goto_0
+
+    .line 47
+    :cond_1
+    const/4 p1, 0x0
+
+    .line 48
+    return-object p1
+
+    .line 49
+    :cond_2
+    :goto_0
+    return-object v1
+.end method
+
+.method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
+
+    .line 1
+    check-cast p1, Le1/e$a;
+
+    .line 2
+    .line 3
+    invoke-virtual {p0, p1}, LL0/T$b;->a(Le1/e$a;)Ljava/lang/Boolean;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object p1
+
+    .line 7
+    return-object p1
+.end method

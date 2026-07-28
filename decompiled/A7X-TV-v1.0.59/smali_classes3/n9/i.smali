@@ -1,0 +1,54 @@
+.class public final Ln9/i;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lr3/o;
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+
+# virtual methods
+.method public d()V
+    .locals 0
+
+    .line 1
+    return-void
+.end method
+
+.method public e(Lr3/r;)Lr3/n;
+    .locals 1
+
+    .line 1
+    const-string v0, "multiFactory"
+
+    .line 2
+    .line 3
+    invoke-static {p1, v0}, LSa/o;->g(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 4
+    .line 5
+    .line 6
+    new-instance p1, Ln9/h;
+
+    .line 7
+    .line 8
+    invoke-direct {p1}, Ln9/h;-><init>()V
+
+    .line 9
+    .line 10
+    .line 11
+    return-object p1
+.end method

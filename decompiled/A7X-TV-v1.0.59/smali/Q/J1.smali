@@ -1,0 +1,38 @@
+.class public final synthetic LQ/J1;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements LRa/a;
+
+
+# instance fields
+.field public final synthetic q:LQ/W1;
+
+
+# direct methods
+.method public synthetic constructor <init>(LQ/W1;)V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, LQ/J1;->q:LQ/W1;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final invoke()Ljava/lang/Object;
+    .locals 1
+
+    .line 1
+    iget-object v0, p0, LQ/J1;->q:LQ/W1;
+
+    invoke-static {v0}, LQ/L1;->b(LQ/W1;)LDa/E;
+
+    move-result-object v0
+
+    return-object v0
+.end method

@@ -258,5 +258,80 @@ def delete_project(project_name):
     return jsonify({'error': 'Proyecto no encontrado'}), 404
 
 
+@app.route('/search/<project_name>')
+def search_project(project_name):
+    project_path = os.path.join(app.config['DECOMPILED_FOLDER'], secure_filename(project_name))
+    if not os.path.exists(project_path):
+        return jsonify({'error': 'Proyecto no encontrado'}), 404
+
+    query = request.args.get('q', '').strip()
+    case_sensitive = request.args.get('cs', 'false').lower() == 'true'
+    file_filter = request.args.get('ext', '').strip()   # e.g. "js,xml,smali"
+    max_results = min(int(request.args.get('limit', 200)), 500)
+
+    if not query or len(query) < 2:
+        return jsonify({'error': 'La búsqueda debe tener al menos 2 caracteres'}), 400
+
+    try:
+        cmd = ['grep', '-rn', '--include=*']
+        if not case_sensitive:
+            cmd.append('-i')
+
+        # Include patterns
+        includes = []
+        if file_filter:
+            for ext in file_filter.split(','):
+                ext = ext.strip().lstrip('.')
+                if ext:
+                    includes.append(f'--include=*.{ext}')
+        else:
+            for ext in ['js', 'xml', 'smali', 'json', 'java', 'kt', 'txt', 'yml', 'yaml', 'properties', 'gradle', 'cfg']:
+                includes.append(f'--include=*.{ext}')
+
+        cmd = ['grep', '-rn'] + includes
+        if not case_sensitive:
+            cmd.append('-i')
+        cmd += ['--', query, project_path]
+
+        result = subprocess.run(
+            cmd,
+            capture_output=True, text=True, timeout=30
+        )
+
+        matches = []
+        for line in result.stdout.splitlines():
+            if len(matches) >= max_results:
+                break
+            # Format: /path/to/file:linenum:content
+            parts = line.split(':', 2)
+            if len(parts) < 3:
+                continue
+            filepath = parts[0]
+            try:
+                lineno = int(parts[1])
+            except ValueError:
+                continue
+            content = parts[2]
+
+            rel_path = os.path.relpath(filepath, project_path)
+            matches.append({
+                'file': rel_path,
+                'line': lineno,
+                'content': content[:300],
+            })
+
+        return jsonify({
+            'query': query,
+            'total': len(matches),
+            'truncated': result.returncode == 0 and len(matches) >= max_results,
+            'results': matches
+        })
+
+    except subprocess.TimeoutExpired:
+        return jsonify({'error': 'Búsqueda tardó demasiado, intenta un término más específico'}), 500
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

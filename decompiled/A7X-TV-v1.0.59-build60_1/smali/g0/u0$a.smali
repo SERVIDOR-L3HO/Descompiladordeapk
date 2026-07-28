@@ -1,0 +1,60 @@
+.class public final Lg0/u0$a;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements LRa/a;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lg0/u0;->l(ZLp1/a;LF0/m;Lg0/k0;LP0/k;LP0/k;Lm0/r;I)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic q:Lv/N0;
+
+
+# direct methods
+.method public constructor <init>(Lv/N0;)V
+    .locals 0
+
+    .line 1
+    iput-object p1, p0, Lg0/u0$a;->q:Lv/N0;
+
+    .line 2
+    .line 3
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 4
+    .line 5
+    .line 6
+    return-void
+.end method
+
+
+# virtual methods
+.method public final invoke()Ljava/lang/Object;
+    .locals 1
+
+    .line 1
+    iget-object v0, p0, Lg0/u0$a;->q:Lv/N0;
+
+    .line 2
+    .line 3
+    invoke-virtual {v0}, Lv/N0;->v()Ljava/lang/Object;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object v0
+
+    .line 7
+    return-object v0
+.end method

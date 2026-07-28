@@ -1,0 +1,93 @@
+.class LJ3/h$k;
+.super LJ3/h$j;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = LJ3/h;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x2
+    name = "k"
+.end annotation
+
+
+# instance fields
+.field b:F
+
+.field final synthetic c:LJ3/h;
+
+
+# direct methods
+.method private constructor <init>(LJ3/h;)V
+    .locals 1
+
+    .line 1
+    iput-object p1, p0, LJ3/h$k;->c:LJ3/h;
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p1, v0}, LJ3/h$j;-><init>(LJ3/h;LJ3/h$a;)V
+
+    const/4 p1, 0x0
+
+    .line 2
+    iput p1, p0, LJ3/h$k;->b:F
+
+    return-void
+.end method
+
+.method synthetic constructor <init>(LJ3/h;LJ3/h$a;)V
+    .locals 0
+
+    .line 3
+    invoke-direct {p0, p1}, LJ3/h$k;-><init>(LJ3/h;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public b(Ljava/lang/String;)V
+    .locals 2
+
+    .line 1
+    iget v0, p0, LJ3/h$k;->b:F
+
+    .line 2
+    .line 3
+    iget-object v1, p0, LJ3/h$k;->c:LJ3/h;
+
+    .line 4
+    .line 5
+    invoke-static {v1}, LJ3/h;->c(LJ3/h;)LJ3/h$h;
+
+    .line 6
+    .line 7
+    .line 8
+    move-result-object v1
+
+    .line 9
+    iget-object v1, v1, LJ3/h$h;->d:Landroid/graphics/Paint;
+
+    .line 10
+    .line 11
+    invoke-virtual {v1, p1}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+
+    .line 12
+    .line 13
+    .line 14
+    move-result p1
+
+    .line 15
+    add-float/2addr v0, p1
+
+    .line 16
+    iput v0, p0, LJ3/h$k;->b:F
+
+    .line 17
+    .line 18
+    return-void
+.end method

@@ -236,6 +236,150 @@
         /* Modal */
         .modal-content { background: var(--bg-card); border: 1px solid var(--border); color: var(--text); }
         .spinner-border.text-accent { color: var(--accent) !important; }
+
+        /* ── Search panel ── */
+        .search-panel {
+            position: fixed; inset: 0;
+            background: rgba(5, 10, 22, 0.85);
+            backdrop-filter: blur(6px);
+            z-index: 1000;
+            display: flex; align-items: flex-start; justify-content: center;
+            padding-top: 60px;
+        }
+        .search-panel.hidden { display: none; }
+        .search-box {
+            background: var(--bg-card);
+            border: 1px solid rgba(79,143,255,0.3);
+            border-radius: 16px;
+            width: 760px; max-width: 96vw;
+            max-height: 78vh;
+            display: flex; flex-direction: column;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+            overflow: hidden;
+        }
+        .search-header {
+            padding: 14px 16px 12px;
+            border-bottom: 1px solid var(--border);
+            display: flex; flex-direction: column; gap: 10px;
+        }
+        .search-row {
+            display: flex; align-items: center; gap: 8px;
+        }
+        .search-main-input {
+            flex: 1;
+            background: var(--bg-surface);
+            border: 1px solid rgba(79,143,255,0.2);
+            border-radius: 9px;
+            padding: 9px 14px 9px 38px;
+            color: var(--text);
+            font-size: 0.92rem;
+            outline: none;
+            font-family: 'Fira Code', monospace;
+        }
+        .search-main-input:focus { border-color: var(--accent); }
+        .search-main-wrap { position: relative; flex: 1; }
+        .search-main-wrap i {
+            position: absolute; left: 11px; top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent); font-size: 15px; pointer-events: none;
+        }
+        .search-opts {
+            display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+        }
+        .opt-input {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            padding: 5px 10px;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            outline: none;
+            width: 160px;
+        }
+        .opt-input:focus { border-color: var(--accent); color: var(--text); }
+        .opt-toggle {
+            display: flex; align-items: center; gap: 5px;
+            font-size: 0.73rem; color: var(--text-muted);
+            cursor: pointer; user-select: none;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            padding: 5px 10px;
+            transition: all 0.15s;
+        }
+        .opt-toggle.active { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+        .search-go-btn {
+            background: var(--accent);
+            color: #050d1f;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 18px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.15s;
+            white-space: nowrap;
+        }
+        .search-go-btn:hover { background: #6fa8ff; }
+        .search-close-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-muted);
+            padding: 7px 10px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.15s;
+        }
+        .search-close-btn:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+        .search-status {
+            font-size: 0.73rem; color: var(--text-muted);
+            padding: 6px 16px 0;
+            display: none;
+        }
+        .search-results {
+            flex: 1; overflow-y: auto;
+            padding: 8px 0;
+        }
+        .result-item {
+            padding: 8px 16px;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(79,143,255,0.05);
+            transition: background 0.1s;
+        }
+        .result-item:hover { background: var(--bg-hover); }
+        .result-file {
+            font-size: 0.72rem; color: var(--accent);
+            font-family: 'Fira Code', monospace;
+            margin-bottom: 3px;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .result-line-num {
+            font-size: 0.68rem;
+            color: var(--text-dim);
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 0px 5px;
+        }
+        .result-content {
+            font-size: 0.78rem;
+            font-family: 'Fira Code', monospace;
+            color: var(--text-muted);
+            white-space: pre-wrap;
+            word-break: break-all;
+            line-height: 1.5;
+        }
+        .result-content mark {
+            background: rgba(255, 220, 50, 0.25);
+            color: #fde68a;
+            border-radius: 2px;
+            padding: 0 1px;
+        }
+        .search-empty {
+            text-align: center; padding: 40px 20px;
+            color: var(--text-dim); font-size: 0.83rem;
+        }
     </style>
 </head>
 <body>
@@ -253,6 +397,9 @@
             {% endif %}
         </div>
         <div class="topbar-right">
+            <button class="tb-btn download" onclick="openSearch()" title="Buscar en archivos (Ctrl+F)">
+                <i class="bi bi-search"></i> Buscar
+            </button>
             {% if mode == 'apktool' %}
             <button class="tb-btn compile" id="compileBtn" onclick="compileProject()">
                 <i class="bi bi-hammer"></i> Recompilar
@@ -303,6 +450,39 @@
             </div>
         </section>
 
+    </div>
+
+    <!-- Search panel -->
+    <div class="search-panel hidden" id="searchPanel" onclick="closeSearchOnBg(event)">
+        <div class="search-box">
+            <div class="search-header">
+                <div class="search-row">
+                    <div class="search-main-wrap">
+                        <i class="bi bi-search"></i>
+                        <input class="search-main-input" id="searchMainInput" type="text"
+                               placeholder="Buscar en archivos... (URL, clave, función, string...)"
+                               autocomplete="off" spellcheck="false">
+                    </div>
+                    <button class="search-go-btn" onclick="runSearch()">Buscar</button>
+                    <button class="search-close-btn" onclick="closeSearch()"><i class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="search-opts">
+                    <input class="opt-input" id="searchExtInput" type="text"
+                           placeholder="Extensiones: js,xml,smali" title="Filtrar por extensión de archivo">
+                    <div class="opt-toggle" id="caseToggle" onclick="toggleCase()">
+                        <i class="bi bi-type"></i> Aa sensible
+                    </div>
+                    <span style="font-size:0.72rem;color:var(--text-dim);margin-left:4px">Ctrl+F para abrir · Esc para cerrar</span>
+                </div>
+            </div>
+            <div class="search-status" id="searchStatus"></div>
+            <div class="search-results" id="searchResults">
+                <div class="search-empty">
+                    <i class="bi bi-search" style="font-size:2rem;display:block;margin-bottom:8px;opacity:0.2"></i>
+                    Escribe algo y presiona Buscar
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Compile modal -->
@@ -394,7 +574,7 @@
         }
 
         // ── File load ─────────────────────────────────────────
-        function loadFile(path, name) {
+        function loadFile(path, name, jumpLine) {
             document.getElementById('editorBody').innerHTML =
                 `<div class="editor-empty"><div class="spinner-border" style="width:1.5rem;height:1.5rem;color:var(--accent)"></div></div>`;
 
@@ -413,14 +593,30 @@
                     const body = document.getElementById('editorBody');
                     if (data.type === 'text') {
                         const lines = data.content.split('\n');
-                        const nums  = lines.map((_, i) => `<div>${i + 1}</div>`).join('');
+                        const nums  = lines.map((_, i) => {
+                            const n = i + 1;
+                            return `<div id="ln${n}" style="${n === jumpLine ? 'color:var(--accent);font-weight:700' : ''}">${n}</div>`;
+                        }).join('');
+                        const codeLines = lines.map((ln, i) => {
+                            const n = i + 1;
+                            if (n === jumpLine) {
+                                return `<div id="lc${n}" style="background:rgba(79,143,255,0.12);display:block;margin:0 -20px;padding:0 20px">${escHtml(ln)}</div>`;
+                            }
+                            return escHtml(ln) + '\n';
+                        }).join('');
                         const langC = getLangClass(name);
                         body.className = `editor-body ${langC}`;
                         body.innerHTML = `
                             <div class="code-wrap">
                                 <div class="line-nums">${nums}</div>
-                                <pre class="code-body">${escHtml(data.content)}</pre>
+                                <pre class="code-body">${codeLines}</pre>
                             </div>`;
+                        if (jumpLine) {
+                            setTimeout(() => {
+                                const el = document.getElementById(`lc${jumpLine}`) || document.getElementById(`ln${jumpLine}`);
+                                if (el) el.scrollIntoView({ block: 'center' });
+                            }, 50);
+                        }
                     } else {
                         body.className = 'editor-body';
                         body.innerHTML = `
@@ -443,6 +639,119 @@
             const d = document.createElement('div');
             d.textContent = t;
             return d.innerHTML;
+        }
+
+        // ── Search ────────────────────────────────────────────
+        let caseSensitive = false;
+
+        document.addEventListener('keydown', e => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'f') { e.preventDefault(); openSearch(); }
+            if (e.key === 'Escape') closeSearch();
+            if (e.key === 'Enter' && !document.getElementById('searchPanel').classList.contains('hidden')) {
+                if (document.activeElement === document.getElementById('searchMainInput') ||
+                    document.activeElement === document.getElementById('searchExtInput')) {
+                    runSearch();
+                }
+            }
+        });
+
+        function openSearch() {
+            document.getElementById('searchPanel').classList.remove('hidden');
+            setTimeout(() => document.getElementById('searchMainInput').focus(), 50);
+        }
+        function closeSearch() {
+            document.getElementById('searchPanel').classList.add('hidden');
+        }
+        function closeSearchOnBg(e) {
+            if (e.target === document.getElementById('searchPanel')) closeSearch();
+        }
+        function toggleCase() {
+            caseSensitive = !caseSensitive;
+            const btn = document.getElementById('caseToggle');
+            btn.classList.toggle('active', caseSensitive);
+        }
+
+        async function runSearch() {
+            const q = document.getElementById('searchMainInput').value.trim();
+            if (!q || q.length < 2) return;
+
+            const ext = document.getElementById('searchExtInput').value.trim();
+            const status = document.getElementById('searchStatus');
+            const results = document.getElementById('searchResults');
+
+            status.style.display = 'block';
+            status.textContent = 'Buscando…';
+            results.innerHTML = `<div class="search-empty"><div class="spinner-border" style="width:1.4rem;height:1.4rem;color:var(--accent)"></div></div>`;
+
+            const params = new URLSearchParams({ q, cs: caseSensitive, limit: 200 });
+            if (ext) params.set('ext', ext);
+
+            try {
+                const res = await fetch(`/search/${projectName}?${params}`);
+                const data = await res.json();
+
+                if (data.error) {
+                    status.textContent = '⚠ ' + data.error;
+                    results.innerHTML = '';
+                    return;
+                }
+
+                status.textContent = data.total === 0
+                    ? 'Sin resultados'
+                    : `${data.total} resultado${data.total !== 1 ? 's' : ''}${data.truncated ? ' (mostrando los primeros 200)' : ''}`;
+
+                if (data.total === 0) {
+                    results.innerHTML = `<div class="search-empty">Sin resultados para <strong style="color:var(--text)">"${escHtml(q)}"</strong></div>`;
+                    return;
+                }
+
+                const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                const hi  = caseSensitive ? new RegExp(esc(q), 'g') : new RegExp(esc(q), 'gi');
+
+                results.innerHTML = data.results.map(r => `
+                    <div class="result-item" onclick="jumpToFile('${escHtml(r.file)}', ${r.line})">
+                        <div class="result-file">
+                            <i class="bi bi-file-earmark-code" style="font-size:11px"></i>
+                            ${escHtml(r.file)}
+                            <span class="result-line-num">línea ${r.line}</span>
+                        </div>
+                        <div class="result-content">${escHtml(r.content.trim()).replace(hi, m => `<mark>${m}</mark>`)}</div>
+                    </div>`).join('');
+
+            } catch (err) {
+                status.textContent = 'Error al buscar';
+                results.innerHTML = '';
+            }
+        }
+
+        function jumpToFile(filePath, lineNum) {
+            closeSearch();
+            // activate file in tree
+            const treeItems = document.querySelectorAll('.tree-item:not(.folder)');
+            let found = null;
+            treeItems.forEach(el => {
+                if (el.dataset.path === filePath) found = el;
+            });
+            if (found) {
+                document.querySelectorAll('.tree-item').forEach(el => el.classList.remove('active'));
+                found.classList.add('active');
+                // open parent folders
+                let p = found.parentElement;
+                while (p && p.id !== 'treeRoot') {
+                    if (p.classList.contains('tree-children')) {
+                        p.classList.add('open');
+                        const row = p.previousElementSibling;
+                        if (row) {
+                            const icon = row.querySelector('i');
+                            if (icon) icon.className = 'bi bi-chevron-down';
+                        }
+                    }
+                    p = p.parentElement;
+                }
+                found.scrollIntoView({ block: 'nearest' });
+            }
+            const fname = filePath.split('/').pop();
+            loadFile(filePath, fname, lineNum);
         }
 
         // ── Compile ───────────────────────────────────────────

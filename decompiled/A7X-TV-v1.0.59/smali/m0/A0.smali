@@ -1,0 +1,21 @@
+.class final Lm0/A0;
+.super Ly0/s;
+.source "SourceFile"
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 1
+
+    .line 1
+    const-string v0, "The coroutine scope left the composition"
+
+    .line 2
+    .line 3
+    invoke-direct {p0, v0}, Ly0/s;-><init>(Ljava/lang/String;)V
+
+    .line 4
+    .line 5
+    .line 6
+    return-void
+.end method

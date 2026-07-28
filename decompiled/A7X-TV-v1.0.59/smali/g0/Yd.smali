@@ -1,0 +1,232 @@
+.class public final synthetic Lg0/Yd;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lkotlin/jvm/functions/Function2;
+
+
+# instance fields
+.field public final synthetic A:J
+
+.field public final synthetic B:I
+
+.field public final synthetic C:Z
+
+.field public final synthetic D:I
+
+.field public final synthetic E:I
+
+.field public final synthetic F:Ljava/util/Map;
+
+.field public final synthetic G:Lkotlin/jvm/functions/Function1;
+
+.field public final synthetic H:Lq1/z1;
+
+.field public final synthetic I:I
+
+.field public final synthetic J:I
+
+.field public final synthetic K:I
+
+.field public final synthetic q:Lq1/e;
+
+.field public final synthetic r:LF0/m;
+
+.field public final synthetic s:J
+
+.field public final synthetic t:J
+
+.field public final synthetic u:Lu1/r;
+
+.field public final synthetic v:Lu1/t;
+
+.field public final synthetic w:Lu1/i;
+
+.field public final synthetic x:J
+
+.field public final synthetic y:LB1/k;
+
+.field public final synthetic z:LB1/j;
+
+
+# direct methods
+.method public synthetic constructor <init>(Lq1/e;LF0/m;JLQ/S1;JLu1/r;Lu1/t;Lu1/i;JLB1/k;LB1/j;JIZIILjava/util/Map;Lkotlin/jvm/functions/Function1;Lq1/z1;III)V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lg0/Yd;->q:Lq1/e;
+
+    iput-object p2, p0, Lg0/Yd;->r:LF0/m;
+
+    iput-wide p3, p0, Lg0/Yd;->s:J
+
+    iput-wide p6, p0, Lg0/Yd;->t:J
+
+    iput-object p8, p0, Lg0/Yd;->u:Lu1/r;
+
+    iput-object p9, p0, Lg0/Yd;->v:Lu1/t;
+
+    iput-object p10, p0, Lg0/Yd;->w:Lu1/i;
+
+    iput-wide p11, p0, Lg0/Yd;->x:J
+
+    iput-object p13, p0, Lg0/Yd;->y:LB1/k;
+
+    iput-object p14, p0, Lg0/Yd;->z:LB1/j;
+
+    move-wide p1, p15
+
+    iput-wide p1, p0, Lg0/Yd;->A:J
+
+    move/from16 p1, p17
+
+    iput p1, p0, Lg0/Yd;->B:I
+
+    move/from16 p1, p18
+
+    iput-boolean p1, p0, Lg0/Yd;->C:Z
+
+    move/from16 p1, p19
+
+    iput p1, p0, Lg0/Yd;->D:I
+
+    move/from16 p1, p20
+
+    iput p1, p0, Lg0/Yd;->E:I
+
+    move-object/from16 p1, p21
+
+    iput-object p1, p0, Lg0/Yd;->F:Ljava/util/Map;
+
+    move-object/from16 p1, p22
+
+    iput-object p1, p0, Lg0/Yd;->G:Lkotlin/jvm/functions/Function1;
+
+    move-object/from16 p1, p23
+
+    iput-object p1, p0, Lg0/Yd;->H:Lq1/z1;
+
+    move/from16 p1, p24
+
+    iput p1, p0, Lg0/Yd;->I:I
+
+    move/from16 p1, p25
+
+    iput p1, p0, Lg0/Yd;->J:I
+
+    move/from16 p1, p26
+
+    iput p1, p0, Lg0/Yd;->K:I
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 30
+
+    .line 1
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lg0/Yd;->q:Lq1/e;
+
+    iget-object v2, v0, Lg0/Yd;->r:LF0/m;
+
+    iget-wide v3, v0, Lg0/Yd;->s:J
+
+    iget-wide v6, v0, Lg0/Yd;->t:J
+
+    iget-object v8, v0, Lg0/Yd;->u:Lu1/r;
+
+    iget-object v9, v0, Lg0/Yd;->v:Lu1/t;
+
+    iget-object v10, v0, Lg0/Yd;->w:Lu1/i;
+
+    iget-wide v11, v0, Lg0/Yd;->x:J
+
+    iget-object v13, v0, Lg0/Yd;->y:LB1/k;
+
+    iget-object v14, v0, Lg0/Yd;->z:LB1/j;
+
+    move-object v5, v1
+
+    move-object v15, v2
+
+    iget-wide v1, v0, Lg0/Yd;->A:J
+
+    move-wide/from16 v16, v1
+
+    iget v1, v0, Lg0/Yd;->B:I
+
+    iget-boolean v2, v0, Lg0/Yd;->C:Z
+
+    move/from16 v18, v1
+
+    iget v1, v0, Lg0/Yd;->D:I
+
+    move/from16 v19, v1
+
+    iget v1, v0, Lg0/Yd;->E:I
+
+    move/from16 v20, v1
+
+    iget-object v1, v0, Lg0/Yd;->F:Ljava/util/Map;
+
+    move-object/from16 v21, v1
+
+    iget-object v1, v0, Lg0/Yd;->G:Lkotlin/jvm/functions/Function1;
+
+    move-object/from16 v22, v1
+
+    iget-object v1, v0, Lg0/Yd;->H:Lq1/z1;
+
+    move-object/from16 v23, v1
+
+    iget v1, v0, Lg0/Yd;->I:I
+
+    move/from16 v24, v1
+
+    iget v1, v0, Lg0/Yd;->J:I
+
+    move/from16 v25, v1
+
+    iget v1, v0, Lg0/Yd;->K:I
+
+    move-object/from16 v27, p1
+
+    check-cast v27, Lm0/r;
+
+    move-object/from16 v26, p2
+
+    check-cast v26, Ljava/lang/Integer;
+
+    invoke-virtual/range {v26 .. v26}, Ljava/lang/Integer;->intValue()I
+
+    move-result v28
+
+    move/from16 v26, v1
+
+    move-object v1, v5
+
+    const/4 v5, 0x0
+
+    move/from16 v29, v18
+
+    move/from16 v18, v2
+
+    move-object v2, v15
+
+    move-wide/from16 v15, v16
+
+    move/from16 v17, v29
+
+    invoke-static/range {v1 .. v28}, Lg0/ce;->e(Lq1/e;LF0/m;JLQ/S1;JLu1/r;Lu1/t;Lu1/i;JLB1/k;LB1/j;JIZIILjava/util/Map;Lkotlin/jvm/functions/Function1;Lq1/z1;IIILm0/r;I)LDa/E;
+
+    move-result-object v1
+
+    return-object v1
+.end method
