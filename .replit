@@ -1,5 +1,5 @@
 entrypoint = "main.sh"
-modules = ["web", "python-3.11", "nix"]
+modules = ["web", "java-graalvm22.3", "python-3.11", "nix"]
 
 [nix]
 channel = "stable-25_05"
